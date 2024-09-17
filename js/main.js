@@ -316,6 +316,22 @@ tabs7.forEach((tab, index) => {
   });
 });
 
+const tabs8 = document.querySelectorAll('.questions__tabs-btn ');
+const all_content8 = document.querySelectorAll('.tabs-item');
+
+tabs8.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    tabs8.forEach((tab) => {
+      tab.classList.remove('questions__tabs-btn--active');
+    });
+    tab.classList.add('questions__tabs-btn--active');
+    all_content8.forEach((content) => {
+      content.classList.remove('tabs-item--active');
+    });
+    all_content8[index].classList.add('tabs-item--active');
+  });
+});
+
 //cards__body
 
 $(document).ready(function () {
@@ -1370,6 +1386,28 @@ function initializeSwiper() {
 document.addEventListener('DOMContentLoaded', initializeSwiper);
 window.addEventListener('resize', initializeSwiper);
 
+//Swiper top-categories--mobile
+const swiperCategories = new Swiper('.top-categories--mobile__cards.swiper-container', {
+  slidesPerView: 4,
+  spaceBetween: 24,
+  freeMode: true,
+  loop: false,
+  breakpoints: {
+     900: {
+      slidesPerView: 4,
+    },
+     670: {
+      slidesPerView: 3,
+    },
+     444: {
+      slidesPerView: 2,
+    },
+     200: {
+      slidesPerView: 1.4,
+    },
+  },
+});
+
 //Swiper recommendations
 const tabsContainer = document.querySelector('.recommendations__tabs');
 tabsContainer.classList.add('swiper-container');
@@ -1409,6 +1447,8 @@ const swiper = new Swiper('.recommendations__tabs.swiper-container', {
   },
 });
 
+
+
 const tegsContainer = document.querySelector('.recommendations__tegs');
 tegsContainer.classList.add('swiper-container');
 
@@ -1428,6 +1468,7 @@ while (tegsContainer.firstChild) {
 }
 
 tegsContainer.appendChild(tegsWrapper);
+
 
 const swiperTegs = new Swiper('.recommendations__tegs.swiper-container', {
   slidesPerView: 'auto',
