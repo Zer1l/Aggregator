@@ -786,6 +786,17 @@ h2 {
   align-items: center;
 }
 
+.popular-offers__table-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 0px 0px 20px;
+  gap: 12px;
+}
+
+.popular-offers__table-list li {
+  list-style: inherit;
+}
+
 .popular-offers__button {
   margin: 30px 0px 0px 0px;
   max-width: 260px;
@@ -1804,7 +1815,6 @@ h2 {
 .seek__title {
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  font-size: 18px;
   margin: 0px 0px 30px 0px;
 }
 

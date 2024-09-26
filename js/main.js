@@ -786,19 +786,19 @@ $(function () {
   $('.current-offers__slider').slick({
     arrows: false,
     slidesToShow: 4,
-    slidesToScroll:2,
+    slidesToScroll: 2,
     infinite: true,
     responsive: [
       {
-        breakpoint: 451,
+        breakpoint: 551,
         settings: {
           slidesToShow: 1.03,
-          slidesToScroll:1,
+          slidesToScroll: 1,
           draggable: true,
         },
       },
       {
-        breakpoint: 651,
+        breakpoint: 771,
         settings: {
           slidesToShow: 2.05,
           draggable: true,
@@ -829,14 +829,14 @@ $(function () {
   $('.interesting-offers__slider').slick({
     arrows: false,
     slidesToShow: 4,
-    slidesToScroll:2,
+    slidesToScroll: 2,
     infinite: true,
     responsive: [
       {
         breakpoint: 481,
         settings: {
           slidesToShow: 1.03,
-          slidesToScroll:1,
+          slidesToScroll: 1,
           draggable: true,
         },
       },
@@ -956,6 +956,25 @@ $(function () {
     }
   });
 
+  $('.without-visiting--mobile__dropdown-select').on('click', function () {
+    $('.without-visiting--mobile__dropdown-menu').toggleClass(
+      'without-visiting--mobile__dropdown-menu--active'
+    );
+  });
+  $('.without-visiting--mobile__dropdown__item').on('click', function () {
+    $('.without-visiting--mobile__dropdown-menu').removeClass(
+      'without-visiting--mobile__dropdown-menu--active'
+    );
+  });
+
+  $(document).click(function (event) {
+    if (!$(event.target).closest('.without-visiting--mobile__dropdown-select').length) {
+      $('.without-visiting--mobile__dropdown-menu').removeClass(
+        'without-visiting--mobile__dropdown-menu--active'
+      );
+    }
+  });
+
   $('.best-offers-mobile__dropdown-select').on('click', function () {
     $('.best-offers-mobile__dropdown-menu').toggleClass(
       'best-offers-mobile__dropdown-menu--active'
@@ -1066,6 +1085,175 @@ $(function () {
     }
   });
 });
+
+// Обработчик клика по элементам меню
+$('.without-visiting--mobile__dropdown-item').on('click', function () {
+  let sortType = $(this).text().trim();
+  
+  // Удаляем активный класс у всех пунктов меню
+  $('.without-visiting--mobile__dropdown-item').removeClass('without-visiting--mobile__dropdown-item--active');
+  
+  // Добавляем активный класс к выбранному элементу
+  $(this).addClass('without-visiting--mobile__dropdown-item--active');
+  
+  // Применяем сортировку на основе выбранного элемента
+  sortItems(sortType);
+});
+
+// Обработчик клика по элементам меню
+$('.without-visiting--mobile__dropdown-item').on('click', function () {
+  let sortType = $(this).text().trim();
+  
+  // Удаляем активный класс у всех пунктов меню
+  $('.without-visiting--mobile__dropdown-item').removeClass('without-visiting--mobile__dropdown-item--active');
+  
+  // Добавляем активный класс к выбранному элементу
+  $(this).addClass('without-visiting--mobile__dropdown-item--active');
+  
+  // Обновляем выбранный элемент дропдауна
+  $('.without-visiting--mobile__dropdown-selected').text(sortType);
+  
+  // Применяем сортировку на основе выбранного элемента
+  sortItems(sortType);
+});
+
+// Функция сортировки
+function sortItems(type) {
+  let items = $('.without-visiting--mobile__item');
+  
+  items.sort(function (a, b) {
+      let textA, textB;
+
+      switch(type) {
+          case 'Название от А-Я':
+              textA = $(a).find('.without-visiting--mobile__item-name').text().toLowerCase();
+              textB = $(b).find('.without-visiting--mobile__item-name').text().toLowerCase();
+              return textA.localeCompare(textB);
+          case 'Название от Я-А':
+              textA = $(a).find('.without-visiting--mobile__item-name').text().toLowerCase();
+              textB = $(b).find('.without-visiting--mobile__item-name').text().toLowerCase();
+              return textB.localeCompare(textA);
+          case 'Сумма по возрастанию':
+              textA = parseFloat($(a).find('.without-visiting--mobile__item-text').eq(0).text().replace(/[^\d]/g, ''));
+              textB = parseFloat($(b).find('.without-visiting--mobile__item-text').eq(0).text().replace(/[^\d]/g, ''));
+              return textA - textB;
+          case 'Сумма по убыванию':
+              textA = parseFloat($(a).find('.without-visiting--mobile__item-text').eq(0).text().replace(/[^\d]/g, ''));
+              textB = parseFloat($(b).find('.without-visiting--mobile__item-text').eq(0).text().replace(/[^\d]/g, ''));
+              return textB - textA;
+          case 'Срок по возрастанию':
+              textA = parseInt($(a).find('.without-visiting--mobile__item-text').eq(1).text());
+              textB = parseInt($(b).find('.without-visiting--mobile__item-text').eq(1).text());
+              return textA - textB;
+          case 'Срок по убыванию':
+              textA = parseInt($(a).find('.without-visiting--mobile__item-text').eq(1).text());
+              textB = parseInt($(b).find('.without-visiting--mobile__item-text').eq(1).text());
+              return textB - textA;
+          case 'Процент по возрастанию':
+              textA = parseFloat($(a).find('.without-visiting--mobile__item-text').eq(2).text().replace('%', ''));
+              textB = parseFloat($(b).find('.without-visiting--mobile__item-text').eq(2).text().replace('%', ''));
+              return textA - textB;
+          case 'Процент по убыванию':
+              textA = parseFloat($(a).find('.without-visiting--mobile__item-text').eq(2).text().replace('%', ''));
+              textB = parseFloat($(b).find('.without-visiting--mobile__item-text').eq(2).text().replace('%', ''));
+              return textB - textA;
+      }
+  });
+  
+  // Применяем отсортированные элементы
+  $('.without-visiting--mobile__items').html(items);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const table = document.querySelector(".without-visiting__table");
+  const headers = table.querySelectorAll("th");
+  const tbody = table.querySelector("tbody");
+
+  headers.forEach((header, index) => {
+    header.addEventListener("click", () => {
+      const sortType = header.getAttribute("data-sort-type");
+      const rows = Array.from(tbody.querySelectorAll("tr"));
+      const isAscending = header.classList.contains("asc");
+
+      rows.sort((a, b) => {
+        const cellA = a.querySelectorAll("td")[index].innerText.trim();
+        const cellB = b.querySelectorAll("td")[index].innerText.trim();
+
+        if (sortType === "number") {
+          const numA = parseFloat(cellA.replace(/[^\d,.-]/g, "").replace(",", "."));
+          const numB = parseFloat(cellB.replace(/[^\d,.-]/g, "").replace(",", "."));
+          return isAscending ? numA - numB : numB - numA;
+        } else {
+          return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+        }
+      });
+
+      // Обновляем класс для направления сортировки
+      headers.forEach((h) => h.classList.remove("asc", "desc"));
+      header.classList.toggle("asc", !isAscending);
+      header.classList.toggle("desc", isAscending);
+
+      // Переставляем отсортированные строки в таблице
+      rows.forEach((row) => tbody.appendChild(row));
+    });
+  });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const content = document.querySelector('.content');
+  const itemsPerPage = 9;
+  let currentPage = 0;
+  const items = Array.from(content.querySelectorAll('tbody tr'));
+  const paginationContainer = document.querySelector('.pagination');
+
+  function showPage(page) {
+    const startIndex = page * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    
+    items.forEach((item, index) => {
+      item.classList.toggle('hidden', index < startIndex || index >= endIndex);
+    });
+    updateActiveButtonStates();
+  }
+  
+
+  function createPageButtons() {
+    const totalPages = Math.ceil(items.length / itemsPerPage);
+    paginationContainer.innerHTML = '';
+    for (let i = 0; i < totalPages; i++) {
+      const pageButton = document.createElement('button');
+      pageButton.textContent = i + 1;
+      pageButton.addEventListener('click', () => {
+        currentPage = i;
+        showPage(currentPage);
+      });
+      paginationContainer.appendChild(pageButton);
+    }
+    updateActiveButtonStates();
+  }
+
+  function updateActiveButtonStates() {
+    const pageButtons = paginationContainer.querySelectorAll('button');
+    pageButtons.forEach((button, index) => {
+      if (index === currentPage) {
+        button.classList.add('active');
+      } else {
+        button.classList.remove('active');
+      }
+    });
+  }
+
+  createPageButtons();
+  showPage(currentPage);
+});
+
+
+
+
+
+
 
 //offer__row
 $(document).ready(function () {
@@ -1387,25 +1575,76 @@ document.addEventListener('DOMContentLoaded', initializeSwiper);
 window.addEventListener('resize', initializeSwiper);
 
 //Swiper top-categories--mobile
-const swiperCategories = new Swiper('.top-categories--mobile__cards.swiper-container', {
-  slidesPerView: 4,
-  spaceBetween: 24,
+const swiperCategories = new Swiper(
+  '.top-categories--mobile__cards.swiper-container',
+  {
+    slidesPerView: 4,
+    spaceBetween: 24,
+    freeMode: true,
+    loop: false,
+    breakpoints: {
+      900: {
+        slidesPerView: 4,
+      },
+      670: {
+        slidesPerView: 3,
+      },
+      444: {
+        slidesPerView: 2,
+      },
+      200: {
+        slidesPerView: 1.4,
+      },
+    },
+  }
+);
+
+//Swiper all-banks__logos
+const swiperAllBanks = new Swiper('.all-banks__logos.swiper-container', {
+  slidesPerView: 'auto',
+  spaceBetween: 25,
+  freeMode: true,
+  loop: false,
+});
+
+//Swiper experts-opinion
+const swiperExpertsopinion = new Swiper('.experts-opinion__cards', {
+  slidesPerView: 2,
+  spaceBetween: 30,
   freeMode: true,
   loop: false,
   breakpoints: {
-     900: {
-      slidesPerView: 4,
-    },
-     670: {
-      slidesPerView: 3,
-    },
-     444: {
+    1101: {
       slidesPerView: 2,
     },
-     200: {
+    1031: {
+      slidesPerView: 1.8,
+    },
+    801: {
       slidesPerView: 1.4,
+      spaceBetween: 24,
+    },
+    601: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+    },
+    521: {
+      slidesPerView: 1.7,
+      spaceBetween: 24,
+    },
+    300: {
+      slidesPerView: 1.4,
+      spaceBetween: 24,
     },
   },
+});
+
+//Swiper all-banks__logos
+const swiperExchange = new Swiper('.exchange-rate__cards.swiper-container', {
+  slidesPerView: 'auto',
+  spaceBetween: 24,
+  freeMode: true,
+  loop: false,
 });
 
 //Swiper recommendations
@@ -1447,8 +1686,6 @@ const swiper = new Swiper('.recommendations__tabs.swiper-container', {
   },
 });
 
-
-
 const tegsContainer = document.querySelector('.recommendations__tegs');
 tegsContainer.classList.add('swiper-container');
 
@@ -1468,7 +1705,6 @@ while (tegsContainer.firstChild) {
 }
 
 tegsContainer.appendChild(tegsWrapper);
-
 
 const swiperTegs = new Swiper('.recommendations__tegs.swiper-container', {
   slidesPerView: 'auto',
