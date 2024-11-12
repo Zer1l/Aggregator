@@ -59,8 +59,6 @@ h2 {
   margin: 0px 0px 24px 0px;
 }
 
-.card {
-}
 
 .button {
   width: 100%;
@@ -102,15 +100,10 @@ h2 {
     0 20px 8px 0 rgba(66, 75, 97, 0.01), 0 31px 9px 0 rgba(66, 75, 97, 0);
 }
 
-.get-card {
-}
-
-.popular-offers--mobile {
+.questions--mobile {
   display: none;
 }
 
-.map {
-}
 
 .footer {
   background: #003cce;
@@ -293,8 +286,6 @@ h2 {
   margin: 3px 0px 3px 0px;
 }
 
-.header__btn-box {
-}
 
 .header__search {
   background: transparent;
@@ -346,209 +337,384 @@ h2 {
   color: #262626;
 }
 
-/*==================== RECOMMENDATIONS ====================*/
+/*==================== SORTING-LOANS ====================*/
 
-.main__recommendations {
+.main__sorting-loans {
   margin: 0px 0px 50px 0px;
 }
 
-.recommendations__title {
+.sorting-loans__filter {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0px 0px 50px 0px;
+}
+
+.sorting-loans__title {
+  line-height: 1.33333;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sorting-loans__description {
+  max-width: 71%;
+}
+
+.sorting-loans__description--mobile {
+  display: none;
+}
+
+.sorting-loans__body {
+  border-radius: 15px;
+  padding: 38px;
+  margin: 0px 0px 10px 0px;
+  box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.1),
+    9px 8px 12px 0 rgba(0, 0, 0, 0.09), 19px 19px 16px 0 rgba(0, 0, 0, 0.05),
+    34px 34px 19px 0 rgba(0, 0, 0, 0.01), 54px 53px 21px 0 rgba(0, 0, 0, 0);
+}
+
+.sorting-loans__body-top {
+  display: flex;
+  gap: 19px;
+  width: 100%;
+}
+
+.sorting-loans__body-inputs {
+  display: flex;
+  gap: 19px;
+  width: 100%;
+  max-width: 852px;
+}
+
+.sorting-loans__body-dropdown {
+  position: relative;
+  width: 100%;
+  max-width: 410px;
+}
+
+.sorting-loans__body-dropdown-select {
+  display: flex;
+  background: #f2f7ff;
+  border-radius: 15px;
+  padding: 12px 20px;
+  letter-spacing: 0.05em;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+.sorting-loans__body-dropdown-caret {
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.sorting-loans__body-dropdown-caret--rotate {
+  transform: rotate(180deg);
+}
+
+.sorting-loans__body-dropdown-menu {
+  cursor: pointer;
+  padding: 14px 0;
+  position: absolute;
+  border-radius: 15px;
+  background: #fff;
+  top: 55px;
+  left: 0px;
+  width: 100%;
+  opacity: 0;
+  z-index: 100;
+  display: none;
+  transition: all 0.2s;
+  box-shadow: 0 6px 13px 0 rgba(0, 0, 0, 0.1), 0 24px 24px 0 rgba(0, 0, 0, 0.09),
+    0 55px 33px 0 rgba(0, 0, 0, 0.05), 0 98px 39px 0 rgba(0, 0, 0, 0.01),
+    0 153px 43px 0 rgba(0, 0, 0, 0);
+}
+
+.sorting-loans__body-dropdown-menu li {
+  width: 100%;
+  padding: 4px 18px 4px 18px;
+}
+
+.sorting-loans__body-dropdown-menu li:hover {
+  background: #f2f7ff;
+  color: #003cce;
+}
+
+.sorting-loans__body-dropdown-menu li:last-child {
+  margin: 0;
+}
+
+.sorting-loans__body-dropdown-menu li:active {
+  background: #f2f7ff;
+  color: #003cce;
+}
+
+.sorting-loans__body-dropdown-item--active {
+  background: #f2f7ff;
+  color: #003cce;
+}
+
+.sorting-loans__body-dropdown-menu--active {
+  display: block;
+  opacity: 1;
+}
+
+.sorting-loans__body-show {
+  max-width: 240px;
+}
+
+/*==================== TOP-OFFERS ====================*/
+
+.main__top-offers {
+  margin: 0px 0px 50px 0px;
+}
+
+
+.top-offers__title {
   line-height: 1.33333;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin: 0px 0px 30px 0px;
 }
 
-.recommendations__tabs.swiper-container {
-  overflow: hidden;
+.top-offers__cards {
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+  gap: 40px;
 }
 
-.recommendations__tabs .swiper-wrapper {
-  display: flex;
-}
-
-.recommendations__tabs .swiper-slide {
-  display: flex;
-  justify-content: center;
-
-  width: auto;
-}
-
-.recommendations__tabs .swiper-slide:first-child {
-  justify-content: start;
-  margin: 0;
-}
-
-.recommendations__tabs .swiper-slide:last-child {
-  justify-content: end;
-  margin: 0;
-}
-
-.recommendations__tabs {
-  margin: 0px 0px 32px 0px;
-  position: relative;
-}
-
-.recommendations__tabs::before {
-  content: '';
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  height: 1px;
+.top-offers__card {
   width: 100%;
-  background: #d8e8ff;
-}
-
-.recommendations__tabs-btn {
-  position: relative;
-  background: transparent;
-  margin: 0px 39px 0px 0px;
-  padding: 0px 0px 19px 0px;
-  color: #262626;
-  white-space: nowrap;
-}
-
-.recommendations__tabs-btn::before {
-  content: '';
-  display: none;
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: #003cce;
-}
-
-.recommendations__tabs-btn:hover.recommendations__tabs-btn::before {
-  display: block;
-}
-
-.recommendations__tabs-btn--active {
-  color: #003cce;
-}
-
-.recommendations__tabs-btn--active.recommendations__tabs-btn::before {
-  display: block;
-}
-
-.recommendations__tabs-btn:last-child {
-  margin: 0;
-}
-
-.recommendations__tabs-item {
-  display: none;
-  animation: moving 0.5s ease;
-}
-
-@keyframes moving {
-  from {
-    transform: translateX(50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0px);
-    opacity: 1;
-  }
-}
-
-.recommendations__tabs-item--active {
-  display: flex;
-}
-
-.main-contentn {
-  margin: 0px 40px 0px 0px;
-  max-width: 758px;
-  width: 100%;
-}
-
-.main-contentn__banner {
+  background: #fff;
   border-radius: 15px;
-  padding: 38px;
-  margin: 0px 0px 40px 0px;
-  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1),
-    7px 8px 11px 0 rgba(0, 0, 0, 0.09), 16px 19px 15px 0 rgba(0, 0, 0, 0.05),
-    28px 33px 17px 0 rgba(0, 0, 0, 0.01), 44px 52px 19px 0 rgba(0, 0, 0, 0);
+  padding: 20px 15px;
+  box-shadow: 0 1px 3px 0 rgba(66, 75, 97, 0.1),
+    1px 5px 5px 0 rgba(66, 75, 97, 0.09), 2px 12px 7px 0 rgba(66, 75, 97, 0.05),
+    4px 22px 9px 0 rgba(66, 75, 97, 0.01), 6px 34px 10px 0 rgba(66, 75, 97, 0);
 }
 
-.main-contentn__banner-title {
+.top-offers__card-top {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0px 0px 24px 0px;
+}
+
+.top-offers__card-img {
+  margin: 0px 8px 0px 0px;
+}
+
+.top-offers__card-img img {
+  width: 50px;
+}
+
+.top-offers__card-rate {
+  position: absolute;
+  color: #003cce;
   font-weight: 800;
   font-size: 18px;
   line-height: 1.5;
   letter-spacing: 0.01em;
-  text-transform: uppercase;
-  margin: 0px 0px 35px 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  padding: 0px 0px 0px 28px;
 }
 
-.main-contentn__banner-text {
-  line-height: 2.30769;
-  margin: 0px 0px 70px 0px;
+.top-offers__card-rate::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: url(../images/icons/fill-blue-star.svg);
 }
 
-.main-contentn__banner-paragraph {
+.top-offers__card-teg {
+  display: inline-block;
+  font-size: 8px;
+  border: 1px solid #859cd3;
+  border-radius: 10px;
+  padding: 8px 11px;
+  margin: 0px 0px 22px 0px;
 }
 
-.main-contentn__banner-btn {
-  max-width: 178px;
-}
-
-.main-contentn__articles {
-}
-
-.articles {
-}
-
-.articles__body {
-}
-
-.articles__card {
+.top-offers__card-conditions {
   display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.top-offers__card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-offers__card-text {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: right;
+}
+
+.top-offers__card-btn {
+  margin: 24px 0px 0px 0px;
+}
+
+.top-offers__card-infobtn {
+  background: #f2f7ff;
+  border-radius: 30px;
+  min-width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid transparent;
+  transition: all 0.3s;
+}
+
+.top-offers__card-infobtn:hover {
+  border: 1.5px solid #859cd3;
+  background: transparent;
+}
+
+.top-offers__card-infobtn svg path {
+  transition: all 0.3s;
+}
+
+.top-offers__card-infobtn:hover svg path {
+  fill: #859cd3;
+}
+
+.top-offers__card-btn {
+  white-space: nowrap;
+}
+
+.top-offers__btn-box {
+  margin: 30px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.top-offers__btn {
+  max-width: 240px;
+}
+
+/*==================== QUESTIONS ====================*/
+
+.main__questions {
+  margin: 0px 0px 50px 0px;
+}
+
+.questions {
+}
+
+.questions__inner {
+}
+
+.questions__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 0px 34px 0px;
+}
+
+.questions__title {
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.questions__check-all {
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.questions__check-all path {
+  transition: all 0.2s;
+}
+
+.questions__check-all:hover {
+  color: #003cce;
+}
+
+.questions__check-all:hover path {
+  fill: #003cce;
+}
+
+.questions__cards {
+  display: grid;
+  grid-template: repeat(1, 1fr) / repeat(4, 1fr);
+  gap: 40px;
+}
+
+.questions__card {
   border-radius: 15px;
-  overflow: hidden;
-  margin: 0px 0px 40px 0px;
   box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1),
     7px 8px 11px 0 rgba(0, 0, 0, 0.09), 16px 19px 15px 0 rgba(0, 0, 0, 0.05),
     28px 33px 17px 0 rgba(0, 0, 0, 0.01), 44px 52px 19px 0 rgba(0, 0, 0, 0);
 }
 
-.articles__card-img {
-  margin: 0px 40px 0px 0px;
-  max-width: 257px;
-  width: 100%;
-  overflow: hidden;
+.questions__card-link {
+  display: flex;
+  flex-direction: column;
 }
 
-.articles__card-img img {
+.questions__card-img {
+}
+
+.questions__card-img img {
+  border-radius: 15px 15px 0 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  max-height: 143px;
 }
 
-.articles__card-content {
-  padding: 26px 53px 26px 0px;
+.questions__card-content {
+  padding: 24px;
+  position: relative;
 }
 
-.articles__card-top {
-  color: #859cd3;
+.questions__card-title {
+  margin: 20px 0px 24px 0px;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+.questions__card-bottom {
   display: flex;
   justify-content: space-between;
-  margin: 0px 0px 25px 0px;
+  align-items: center;
 }
 
-.articles__card-date {
+.questions__card-date {
+  color: #d6cdc6;
+  position: absolute;
+  top: 14px;
 }
 
-.articles__card-popularity {
+.questions__card-popularity {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: #859cd3;
 }
 
-.articles__card-views {
+.questions__card-views {
   padding: 0px 0px 0px 32px;
   margin: 0px 24px 0px 0px;
   position: relative;
 }
 
-.articles__card-views::before {
+.questions__card-views::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -559,12 +725,12 @@ h2 {
   background: url(../images/icons/eye-icon.svg);
 }
 
-.articles__card-likes {
+.questions__card-likes {
   padding: 0px 0px 0px 32px;
   position: relative;
 }
 
-.articles__card-likes::before {
+.questions__card-likes::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -575,203 +741,24 @@ h2 {
   background: url(../images/icons/like-icon.svg);
 }
 
-.articles__card-title {
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-  margin: 0px 0px 24px 0px;
-}
+/*==================== SEEK ====================*/
 
-.articles__card-btn {
-  max-width: 240px;
-}
-
-.articles__button-box {
-  display: flex;
-  justify-content: center;
-}
-
-.articles__button {
-  max-width: 240px;
-}
-
-.sub-contentn-popular-articles {
-  border-radius: 15px;
-  padding: 30px 30px 40px 30px;
-  background: #d8e8ff;
-  max-width: 360px;
-  width: 100%;
-}
-
-.popular-articles__title {
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  margin: 0px 0px 30px 0px;
-}
-
-.popular-articles__info-block {
-  display: block;
-  margin: 0px 0px 15px 0px;
-  position: relative;
-}
-
-.popular-articles__info-block::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0.5px;
-  background: #859cd3;
-}
-
-.popular-articles__info-title {
-  font-weight: 800;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  margin: 0px 0px 15px 0px;
-}
-
-.popular-articles__info-bottom {
-  display: flex;
-  justify-content: space-between;
-  padding: 0px 0px 4px 0px;
-}
-
-.popular-articles__info-date {
-}
-
-.popular-articles__info-views {
-  padding: 0px 0px 0px 28px;
-  position: relative;
-}
-.popular-articles__info-views::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-  width: 24px;
-  height: 24px;
-  background: url(../images/icons/eye-icon.svg);
-}
-
-/*==================== recommendations-MOBILE ====================*/
-
-.main__recommendations-mobile {
-  display: none;
-  margin: 0px 0px 24px 0px;
-}
-
-.recommendations-mobile__inner {
-}
-
-.recommendations-mobile__title {
-  font-size: 24px;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  margin: 0px 0px 24px 0px;
-}
-
-.recommendations-mobile__dropdown {
-  position: relative;
-}
-
-.recommendations-mobile__dropdown-select {
-  display: flex;
-  background: #f2f7ff;
-  border-radius: 30px;
-  padding: 12px 18px;
-
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.recommendations-mobile__dropdown-selected {
-}
-
-.recommendations-mobile__dropdown-caret {
-  display: flex;
-  align-items: center;
-  transition: all 0.3s;
-}
-
-.recommendations-mobile__dropdown-caret--rotate {
-  transform: rotate(180deg);
-}
-
-.recommendations-mobile__dropdown-menu {
-  padding: 14px 0;
-  position: absolute;
-  border-radius: 15px;
-  background: #fff;
-  top: 55px;
-  left: 0px;
-  width: 100%;
-  opacity: 0;
-  z-index: 1;
-  display: none;
-  transition: all 0.2s;
-  box-shadow: 0 6px 13px 0 rgba(0, 0, 0, 0.1), 0 24px 24px 0 rgba(0, 0, 0, 0.09),
-    0 55px 33px 0 rgba(0, 0, 0, 0.05), 0 98px 39px 0 rgba(0, 0, 0, 0.01),
-    0 153px 43px 0 rgba(0, 0, 0, 0);
-}
-
-.recommendations-mobile__dropdown-menu li {
-  width: 100%;
-  padding: 4px 18px 4px 18px;
-}
-
-.recommendations-mobile__dropdown-menu li:last-child {
-  margin: 0;
-}
-
-.recommendations-mobile__dropdown-menu li:active {
-  background: #f2f7ff;
-  color: #003cce;
-}
-
-.recommendations-mobile__dropdown-item--active {
-  background: #f2f7ff;
-  color: #003cce;
-}
-
-.recommendations-mobile__dropdown-menu--active {
-  display: block;
-  opacity: 1;
-}
-
-.recommendations-mobile__body {
-  margin: 16px 0px 0px 0px;
-}
-
-/*==================== BEST-OFFERS ====================*/
-
-.main__best-offers {
+.main__seek {
   margin: 0px 0px 50px 0px;
 }
 
-.best-offers__title {
+.seek__title {
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  font-size: 30px;
   margin: 0px 0px 30px 0px;
 }
 
-.best-offers__tabs {
+.seek__tabs {
   margin: 0px 0px 43px 0px;
   position: relative;
 }
 
-.best-offers__tabs::before {
+.seek__tabs::before {
   content: '';
   position: absolute;
   bottom: -5px;
@@ -781,25 +768,25 @@ h2 {
   background: #d8e8ff;
 }
 
-.best-offers__tabs-btn {
+.seek__tabs-btn {
   position: relative;
   background: transparent;
   margin: 0px 39px 0px 0px;
   padding: 0px 0px 15px 0px;
 }
 
-.best-offers__more-btn {
+.seek__more-btn {
   position: relative;
   background: transparent;
   margin: 0px 39px 0px 0px;
   padding: 0px 0px 15px 0px;
 }
 
-.best-offers__more-btn:hover {
+.seek__more-btn:hover {
   color: #003cce;
 }
 
-.best-offers__tabs-btn::before {
+.seek__tabs-btn::before {
   content: '';
   display: none;
   position: absolute;
@@ -810,64 +797,48 @@ h2 {
   background: #003cce;
 }
 
-.best-offers__tabs-btn:hover.best-offers__tabs-btn::before {
+.seek__tabs-btn:hover.seek__tabs-btn::before {
   display: block;
 }
 
-.best-offers__tabs-btn--active {
+.seek__tabs-btn--active {
   color: #003cce;
 }
 
-.best-offers__more-btn--active path {
+.seek__more-btn--active path {
   fill: #003cce;
 }
 
-.best-offers__tabs-btn--active.best-offers__tabs-btn::before {
+.seek__tabs-btn--active.seek__tabs-btn::before {
   display: block;
 }
 
-.best-offers__more-btn {
+.seek__more-btn {
   padding: 0px 28px 15px 0px;
   position: relative;
 }
 
-.best-offers__more-btn svg {
+.seek__more-btn svg {
   position: absolute;
   top: 50%;
   transform: translateY(-80%);
   right: 0;
 }
 
-.best-offers__more-btn:hover path {
+.seek__more-btn:hover path {
   fill: #003cce;
 }
 
-.best-offers__tabs-btn:hover {
+.seek__tabs-btn:hover {
   color: #003cce;
 }
 
-.best-offers__tabs-btn:last-child {
+.seek__tabs-btn:last-child {
   margin: 0;
 }
 
-.best-offers__check-all {
-  display: flex;
-  align-items: center;
-  float: right;
-}
 
-.best-offers__check-all:hover {
-  color: #003cce;
-}
-
-.best-offers__check-all:hover svg path {
-  fill: #003cce;
-}
-
-.best-offers__tabs-body {
-}
-
-.best-offers__tabs-content {
+.seek__tabs-content {
   display: none;
   animation: moving2 0.5s ease;
 }
@@ -883,92 +854,41 @@ h2 {
   }
 }
 
-.best-offers__tabs-content--active {
+.seek__tabs-content--active {
   display: block;
 }
 
-.best-offers__cards-bank {
+.seek__tabs-chapter ul {
   display: flex;
-  gap: 40px;
+  justify-content: space-between;
 }
 
-.best-offers__card-bank {
-  padding: 18px;
-  border-radius: 15px;
-  max-width: 260px;
-  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1),
-    7px 8px 11px 0 rgba(0, 0, 0, 0.09), 16px 19px 15px 0 rgba(0, 0, 0, 0.05),
-    28px 33px 17px 0 rgba(0, 0, 0, 0.01), 44px 52px 19px 0 rgba(0, 0, 0, 0);
-}
-
-.card-bank {
-}
-
-.card-bank__top {
-  display: flex;
-  align-items: center;
-  margin: 0px 0px 15px 0px;
-}
-
-.card-bank__top-img {
-  margin: 0px 15px 0px 0px;
-}
-
-.card-bank__top-name {
-  font-size: 18px;
-}
-
-.card-bank__middle {
-  margin: 0px 0px 15px 0px;
-}
-
-.card-bank__middle-subtitle {
-  margin: 0px 0px 15px 0px;
-}
-
-.card-bank__middle-title {
-  font-weight: 800;
-  font-size: 13px;
-  line-height: 1.53846;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin: 0px 0px 15px 0px;
-}
-
-.card-bank__conditions {
+.seek__tabs-chapter li {
   display: flex;
   flex-direction: column;
 }
 
-.card-bank__conditions-title {
-  font-weight: 700;
-  font-size: 13px;
-  line-height: 1.53846;
-  letter-spacing: 0.02em;
-  margin: 0px 0px 5px 0px;
-}
-
-.card-bank__conditions-text {
+.seek__link {
   margin: 0px 0px 8px 0px;
+  transition: all 0.2s;
 }
 
-.card-bank__bottom {
+.seek__link:last-child {
+  margin: 0;
 }
 
-.card-bank__bottom-btn {
+.seek__link:hover {
+  color: #003cce;
 }
 
-/*==================== BEST-OFFERS-MOBILE ====================*/
+/*==================== SEEK-MOBILE ====================*/
 
-.main__best-offers-mobile {
+.main__seek-mobile {
   display: none;
   margin: 0px 0px 24px 0px;
 }
 
-.best-offers-mobile__inner {
-}
-
-.best-offers-mobile__title {
+.seek-mobile__title {
   font-size: 24px;
   line-height: 1.4;
   letter-spacing: 0.02em;
@@ -976,11 +896,11 @@ h2 {
   margin: 0px 0px 24px 0px;
 }
 
-.best-offers-mobile__dropdown {
+.seek-mobile__dropdown {
   position: relative;
 }
 
-.best-offers-mobile__dropdown-select {
+.seek-mobile__dropdown-select {
   display: flex;
   background: #f2f7ff;
   border-radius: 30px;
@@ -992,20 +912,18 @@ h2 {
   align-items: center;
 }
 
-.best-offers-mobile__dropdown-selected {
-}
 
-.best-offers-mobile__dropdown-caret {
+.seek-mobile__dropdown-caret {
   display: flex;
   align-items: center;
   transition: all 0.3s;
 }
 
-.best-offers-mobile__dropdown-caret--rotate {
+.seek-mobile__dropdown-caret--rotate {
   transform: rotate(180deg);
 }
 
-.best-offers-mobile__dropdown-menu {
+.seek-mobile__dropdown-menu {
   padding: 14px 0;
   position: absolute;
   border-radius: 15px;
@@ -1022,32 +940,60 @@ h2 {
     0 153px 43px 0 rgba(0, 0, 0, 0);
 }
 
-.best-offers-mobile__dropdown-menu li {
+.seek-mobile__dropdown-menu li {
   width: 100%;
   padding: 4px 18px 4px 18px;
 }
 
-.best-offers-mobile__dropdown-menu li:last-child {
+.seek-mobile__dropdown-menu li:last-child {
   margin: 0;
 }
 
-.best-offers-mobile__dropdown-menu li:active {
+.seek-mobile__dropdown-menu li:active {
   background: #f2f7ff;
   color: #003cce;
 }
 
-.best-offers-mobile__dropdown-item--active {
+.seek-mobile__dropdown-item--active {
   background: #f2f7ff;
   color: #003cce;
 }
 
-.best-offers-mobile__dropdown-menu--active {
+.seek-mobile__dropdown-menu--active {
   display: block;
   opacity: 1;
 }
 
-.best-offers-mobile__body {
+.seek-mobile__body {
   margin: 16px 0px 0px 0px;
+}
+
+.seek-mobile__list-item {
+  display: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0px 8px 0px;
+}
+
+.seek-mobile__list-item:last-child {
+  margin: 0;
+}
+
+.seek-mobile__item {
+  overflow: auto;
+  max-height: 216px;
+}
+
+.seek-mobile__item--active {
+  display: block;
+}
+
+.seek-mobile__link {
+  margin: 0px 0px 8px 0px;
+}
+
+.seek-mobile__link:last-child {
+  margin: 0;
 }
 
 /*==================== MAILING ====================*/
@@ -1075,9 +1021,6 @@ h2 {
   font-size: 16px;
   color: #fff;
   margin: 0px 0px 28px 0px;
-}
-
-.mailing__form {
 }
 
 .mailing__form-fill {
@@ -1164,16 +1107,11 @@ input[type='checkbox']:checked {
   margin: 29px 0px 0px 0px;
 }
 
-.footer__element--social {
-}
 
 .footer__bottom {
   display: flex;
   justify-content: space-between;
   padding: 0px 0px 57px 0px;
-}
-
-.footer__copy {
 }
 
 .footer__politics {
@@ -1183,9 +1121,6 @@ input[type='checkbox']:checked {
 
 .footer__confidentiality {
   margin: 0px 55px 0px 0px;
-}
-
-.footer__cookies {
 }
 
 .footer__link--telegram {
@@ -1260,6 +1195,30 @@ input[type='checkbox']:checked {
     border: 1px solid #003cce;
   }
 
+  .questions__check-all:hover {
+    color: inherit;
+  }
+
+  .questions__check-all:hover path {
+    fill: #262626;
+  }
+
+  .questions__check-all:active {
+    color: #003cce;
+  }
+
+  .questions__check-all:active path {
+    fill: #003cce;
+  }
+
+  .seek__link:hover {
+    color: inherit;
+  }
+
+  .seek__link:active {
+    color: #003cce;
+  }
+
   .mailing__form-btn:hover {
     background: #262626;
     border: 1px solid transparent;
@@ -1270,9 +1229,23 @@ input[type='checkbox']:checked {
 @media (max-width: 1200px) {
   /*==================== MEDIA 1200 ====================*/
   /*====================== HEADER ======================*/
+
   .header__search {
     margin: 0px 0px 0px 80px;
   }
+
+  /*====================== TOP-OFFERS ======================*/
+
+  .top-offers__cards {
+    gap: 30px;
+  }
+
+  /*====================== QUESTIONS ======================*/
+
+  .questions__cards {
+    gap: 30px;
+  }
+
 }
 
 @media (max-width: 1100px) {
@@ -1283,25 +1256,18 @@ input[type='checkbox']:checked {
     margin: 0px 0px 0px 20px;
   }
 
-  /*====================== RECOMMENDATIONS ======================*/
+  /*====================== TOP-OFFERS ======================*/
 
-  .recommendations__main-contentn {
-    margin: 0px 20px 0px 0px;
-  }
-
-  .main-contentn__banner {
-    margin: 0px 0px 20px 0px;
-  }
-
-  .articles__card {
-    margin: 0px 0px 20px 0px;
-  }
-
-  /*====================== BEST-OFFERS ======================*/
-
-  .best-offers__cards-bank {
+  .top-offers__cards {
     gap: 20px;
   }
+
+   /*====================== QUESTIONS ======================*/
+
+  .questions__cards {
+    gap: 20px;
+  }
+
 }
 
 @media (max-width: 1030px) {
@@ -1431,25 +1397,24 @@ input[type='checkbox']:checked {
     margin: 0;
   }
 
-  /*====================== BEST-OFFERS-MOBILE ======================*/
+  /*====================== TOP-OFFERS ======================*/
 
-  .main__best-offers {
-    display: none;
+  .top-offers__cards {
+    grid-template: repeat(4, 1fr) / repeat(3, 1fr);
   }
 
-  /*====================== BEST-OFFERS-MOBILE ======================*/
-
-  .main__best-offers-mobile {
-    display: block;
+  .sorting-loans__body-toggle-inner {
+    column-gap: 5px;
   }
 
-  .best-offers__cards-bank {
-    display: flex;
-    gap: 0;
+  /*==================== QUESTIONS ====================*/
+
+  .questions__cards {
+    grid-template: repeat(1, 1fr) / repeat(3, 1fr);
   }
 
-  .best-offers__card-bank {
-    margin: 0px 24px 10px 0px;
+  .questions__cards {
+    gap: 20px;
   }
 
   /*====================== FOOTER ======================*/
@@ -1544,70 +1509,143 @@ input[type='checkbox']:checked {
     margin: 0px 0px 15px 0px;
   }
 
-  /*====================== RECOMMENDATIONS ======================*/
+  /*====================== TOP-OFFERS ======================*/
 
-  .main__recommendations {
+  .top-offers__cards {
+    grid-template: repeat(4, 1fr) / repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .top-offers__card-top {
+    flex-direction: column;
+    align-items: start;
+    margin: 0;
+  }
+
+  .top-offers__card-img {
+    margin: 0px 0px 8px 0px;
+  }
+
+  .top-offers__card-img img {
+    max-width: 38px;
+  }
+
+  .top-offers__card-description {
+    font-size: 8px;
+  }
+
+  .top-offers__card-name {
+    margin: 0px 0px 20px 0px;
+  }
+
+  .top-offers__card-rate {
+    position: inherit;
+  }
+
+  .top-offers__card-row {
+    font-size: 8px;
+  }
+
+  .top-offers__card-btns {
+    flex-direction: column-reverse;
+  }
+
+  .top-offers__card-btn {
+    white-space: inherit;
+  }
+
+  .sorting-loans__inner {
+    position: relative;
+  }
+
+  .sorting-loans__filter {
+    margin: 0px 0px 30px 0px;
+  }
+
+  .sorting-loans__title {
+    font-size: 24px;
+  }
+
+  .sorting-loans__body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    position: relative;
+    margin: 0;
+  }
+
+  .sorting-loans__body-subparameters {
+    gap: 8px;
+  }
+
+  .sorting-loans__description {
     display: none;
   }
 
-  /*====================== RECOMMENDATIONS-MOBILE======================*/
-
-  .main__recommendations-mobile {
+  .sorting-loans__description--mobile {
     display: block;
-    margin: 0px 0px 30px 0px;
   }
 
-  .main-contentn__articles {
-    margin: 0px 0px 30px 0px;
-  }
-
-  .recommendations__tabs-item--active {
+  .sorting-loans__body-top {
     flex-direction: column;
   }
 
-  .main-contentn__banner-title {
-    margin: 0px 0px 24px 0px;
+  .sorting-loans__body-inputs {
+    flex-direction: column;
   }
 
-  .main-contentn__banner-text {
-    line-height: 1.5;
-    margin: 0px 0px 24px 0px;
+  .sorting-loans__body-input {
+    max-width: 100%;
   }
 
-  .main-contentn__banner {
-    margin: 0px 0px 30px 0px;
-    padding: 20px 18px;
+  .sorting-loans__body-dropdown {
+    max-width: 100%;
   }
 
-  .articles__card {
-    margin: 0px 0px 30px 0px;
+  .sorting-loans__body-buttons {
+    max-width: 100%;
   }
 
-  .sub-contentn-popular-articles {
-    max-width: inherit;
+  .sorting-loans__body-show {
+    max-width: 50%;
   }
 
-  .articles__card-img {
-    margin: 0px 20px 0px 0px;
+  .sorting-loans__body-toggle-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
-  .articles__card-top {
-    margin: 0px 0px 12px 0px;
+  /*==================== QUESTIONS ====================*/
+
+  .questions__top {
+    margin: 0px 0px 10px 0px;
   }
 
-  .articles__card-title {
-    margin: 0px 0px 12px 0px;
+  .questions__title {
+    font-size: 24px;
   }
 
-  /*====================== BEST-OFFERS ======================*/
-
-  .main__best-offers {
+  .questions__check-all {
     display: none;
   }
 
-  /*====================== BEST-OFFERS-MOBILE ======================*/
+  .questions__cards {
+    gap: 0;
+    display: flex;
+  }
 
-  .main__best-offers-mobile {
+  .questions__card {
+    margin: 15px 10px;
+  }
+
+  /*====================== SEEK ======================*/
+
+  .main__seek {
+    display: none;
+  }
+
+  .main__seek-mobile {
     display: block;
   }
 
@@ -1649,9 +1687,6 @@ input[type='checkbox']:checked {
   .mailing__form-lable {
     display: flex;
     align-items: start;
-  }
-
-  .mailing__form-lable span {
   }
 
   .mailing__form-checkbox {
@@ -1753,54 +1788,18 @@ input[type='checkbox']:checked {
 
 @media (max-width: 500px) {
   /*====================== MEDIA 500 ======================*/
-  /*====================== RECOMMENDATIONS-MOBILE======================*/
+  /*====================== SORTING-LOANS ======================*/
 
-  .main-contentn__banner-btn {
-    max-width: 100%;
+  .sorting-loans__body-show {
+    max-width: 240px;
   }
 
-  .articles__card {
-    flex-direction: column;
+  .sorting-loans__body-subparameter {
+    font-size: 8px;
   }
 
-  .articles__card-img {
-    max-width: 100%;
-    max-height: 250px;
-    margin: 0px 0px 15px 0px;
-  }
-
-  .articles__card-content {
-    padding: 0px 24px 24px 24px;
-    position: relative;
-  }
-
-  .articles__card-title {
-    padding: 0px 0px 25px 0px;
-    margin: 0px 0px 30px 0px;
-  }
-
-  .articles__card-popularity {
-    display: flex;
-    position: absolute;
-    justify-content: space-between;
-    width: calc(100% - 48px);
-    bottom: 95px;
-  }
-
-  .articles__card-views {
-    margin: 0;
-  }
-
-  .articles__card-btn {
-    max-width: 100%;
-  }
 }
 
 @media (max-width: 350px) {
   /*====================== MEDIA 350 ======================*/
-  /*====================== RECOMMENDATIONS-MOBILE======================*/
-
-  .articles__card-img {
-    max-height: 143px;
-  }
 }

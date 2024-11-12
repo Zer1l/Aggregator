@@ -641,9 +641,6 @@ input[type='file'] {
   width: 240px;
 }
 
-.button--empty {
-}
-
 /*==================== MAIN-TOP ====================*/
 
 .main__top {
@@ -725,6 +722,7 @@ input[type='file'] {
 .card__line-2 .card__text,
 .card__line-3 .card__text {
   font-size: 18px;
+  white-space: nowrap;
 }
 
 .card__reviews {
@@ -937,7 +935,7 @@ input[type='file'] {
 
 .evaluations__lable {
   display: flex;
-
+  cursor: pointer;
   margin: 0px 0px 30px 0px;
 }
 
@@ -1029,7 +1027,7 @@ input[type='radio']:checked {
   width: 280px;
 }
 
-/*==================== ALL-REVIEWS ====================*/
+/*==================== EVALUATIONS ====================*/
 
 .evaluations__reviews {
   margin: 0px 0px 50px 0px;
@@ -1143,7 +1141,7 @@ input[type='radio']:checked {
 }
 
 .reviews__review-text--all {
-  max-height: 400px;
+  max-height: 410px;
   overflow: auto;
   padding: 0px 20px 0px 0px;
 }
@@ -4037,6 +4035,8 @@ input[type='checkbox']:checked {
   .main__cards {
     margin: 0px 0px 24px 0px;
   }
+
+  /*====================== OFFERS ======================*/
 
   .offers__title {
     font-size: 24px;

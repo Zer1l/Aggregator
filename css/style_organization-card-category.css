@@ -516,7 +516,7 @@ h2 {
 
 .bank-card__main {
   display: flex;
-  margin: 0px 12.4% 0px 0px;
+  margin: 0px 45px 0px 0px;
 }
 
 .bank-card__main-logo {
@@ -524,16 +524,18 @@ h2 {
 }
 
 .bank-card__main-info {
+  display: flex;
+  flex-direction: column;
 }
 
 .bank-card__title {
   text-transform: uppercase;
-  margin: 0px 0px 16px 0px;
-  white-space: nowrap;
+  max-width: 358px;
+  text-wrap: balance;
 }
 
-.bank-card__description {
-  margin: 0px 0px 16px 0px;
+.bank-card__title span {
+  white-space: nowrap;
 }
 
 .bank-card__reviews {
@@ -586,6 +588,7 @@ h2 {
   font-weight: 700;
   letter-spacing: 0.02em;
   margin: 0px 0px 8px 0px;
+  white-space: nowrap;
 }
 
 .bank-card__info-text {
@@ -598,7 +601,6 @@ h2 {
 
 .bank-card__buttons {
   max-width: 240px;
-  width: 100%;
 }
 
 .bank-card__button {
@@ -609,211 +611,326 @@ h2 {
   margin: 0;
 }
 
-/*==================== POPULAR-CARD ====================*/
+/*==================== OFFERS ====================*/
 
-.main__popular-offers {
+.main__offers {
   margin: 0px 0px 50px 0px;
 }
 
-.popular-offers {
+.offers {
 }
 
-.popular-offers__inner {
+.offers__inner {
 }
 
-.popular-offers__title {
-  margin: 0px 0px 30px 0px;
-  line-height: 1.33333;
+.offers__title {
+  line-height: 1.2;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  margin: 0px 0px 30px 0px;
 }
 
-.popular-offers__tabs {
-  margin: 0px 0px 32px 0px;
-  position: relative;
+.offers__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.popular-offers__tabs::before {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  height: 1px;
-  width: 100%;
-  background: #d8e8ff;
-}
-
-.popular-offers__tabs-btn {
-  position: relative;
-  background: transparent;
-  margin: 0px 39px 0px 0px;
-  padding: 0px 0px 15px 0px;
-  color: #262626;
-}
-
-.popular-offers__tabs-btn::before {
-  content: '';
-  display: none;
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: #003cce;
-}
-
-.popular-offers__tabs-btn:hover.popular-offers__tabs-btn::before {
-  display: block;
-}
-
-.popular-offers__tabs-btn--active {
-  color: #003cce;
-}
-
-.popular-offers__tabs-btn--active.popular-offers__tabs-btn::before {
-  display: block;
-}
-
-.popular-offers__tabs-btn:last-child {
-  margin: 0;
-}
-
-.popular-offers__tabs-body {
-}
-
-.popular-offers__tabs-item {
-}
-
-.tabs-item__bank-row {
-  border-radius: 15px;
-  padding: 30px 36px 20px 36px;
-
+.offers__row {
+  padding: 30px 36px;
+  border-radius: 20px;
   background: #f2f7ff;
-  margin: 0px 0px 18px 0px;
-
   box-shadow: 0 2px 5px 0 rgba(66, 75, 97, 0.1),
-    0 9px 9px 0 rgba(66, 75, 97, 0.09), 0 20px 12px 0 rgba(66, 75, 97, 0.05),
+    0 9px 9px 0 rgba(66, 75, 97, 0.09), 0 19px 12px 0 rgba(66, 75, 97, 0.05),
     0 35px 14px 0 rgba(66, 75, 97, 0.01), 0 54px 15px 0 rgba(66, 75, 97, 0);
 }
 
-.tabs-item__bank-row:last-child {
+.offers__row-top {
+  display: flex;
+  margin: 0px 0px 30px 0px;
+}
+
+.offers__row-img {
+  margin: 0px 30px 0px 0px;
+}
+
+.offers__row-img img {
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.38);
+  border-radius: 10px;
+}
+
+.offers__row-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 90px 0px 0px;
+}
+
+.offers__row-name {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  margin: 0px 0px 8px 0px;
+}
+
+.offers__row-cards {
+  margin: 0px 0px 15px 0px;
+}
+
+.offers__row-card {
+  margin: 0px 0px 8px 0px;
+}
+
+.offers__row-card:last-child {
   margin: 0;
 }
 
-.tabs-item {
-  display: none;
-  animation: moving 0.5s ease;
-}
-
-@keyframes moving {
-  from {
-    transform: translateX(50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0px);
-    opacity: 1;
-  }
-}
-
-.tabs-item--active {
-  display: block;
-}
-
-.tabs-item__top {
+.offers__row-reviews {
   display: flex;
   align-items: center;
-  margin: 0px 0px 25px 0px;
-}
-
-.tabs-item__logo {
-  max-width: 50px;
-  width: 100%;
-  margin: 0px 20px 0px 0px;
-}
-
-.tabs-item__logo img {
-  width: 100%;
-}
-
-.tabs-item__bank-info {
-  max-width: 322px;
-  width: 100%;
-  margin: 0px 44px 0px 0px;
-}
-
-.tabs-item__bank-name {
-  font-size: 18px;
-  letter-spacing: 0.01em;
-  margin: 0px 0px 8px 0px;
+  position: relative;
+  padding: 0px 0px 0px 28px;
   white-space: nowrap;
 }
 
-/*==================== TABLE ====================*/
-
-.popular-offers__tabs-table {
-  max-width: 857px;
-  width: 100%;
+.offers__row-reviews::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  background: url(../images/icons/black-star.svg);
 }
 
-.popular-offers__table-row {
+.offers__row-reviews .offers__row-title {
+  font-size: 18px;
+  margin: 0px 12px 0px 0px;
+}
+
+.offers__row-conditions {
   display: flex;
+  gap: 58px;
+  margin: 0px 88px 0px 0px;
 }
 
-.popular-offers__table-row th {
-  align-items: start;
-  justify-content: start;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  width: 30%;
+.offers__row-condition {
+}
+
+.offers__row-item {
+  margin: 0px 0px 32px 0px;
+}
+
+.offers__row-item:last-child {
+  margin: 0;
+}
+
+.offers__row-title {
+  white-space: nowrap;
+  font-weight: 700;
+  line-height: 1.53846;
   letter-spacing: 0.02em;
+  margin: 0px 0px 8px 0px;
 }
 
-.popular-offers__table-row td {
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  width: 70%;
+.offers__row-text {
+  white-space: nowrap;
 }
 
-.popular-offers__table-row:nth-of-type(odd) .popular-offers__table-item {
-  background: #f2f7ff;
-}
-
-.popular-offers__table-item {
-  text-align: left;
-  padding: 21px 19px;
+.offers__row-btn {
   display: flex;
   align-items: center;
+  justify-content: center;
+  max-width: 240px;
+  height: 48px;
 }
 
-.popular-offers__table-list {
+.offers__row-tegs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.offers__row-teg {
+  border: 0.5px solid #859cd3;
+  border-radius: 10px;
+  padding: 10px;
+  background: #fff;
+}
+/*==================== offers-similar ====================*/
+
+.main__offers-similar {
+  margin: 0px 0px 50px 0px;
+}
+
+.offers-similar {
+}
+
+.offers-similar__inner {
+}
+
+.offers-similar__title {
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0px 0px 30px 0px;
+}
+
+.offers-similar__rows {
   display: flex;
   flex-direction: column;
-  padding: 0px 0px 0px 20px;
-  gap: 12px;
+  gap: 18px;
 }
 
-.popular-offers__table-list li {
-  list-style: inherit;
+.offers-similar__row {
+  padding: 30px 36px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 2px 5px 0 rgba(66, 75, 97, 0.1),
+    0 9px 9px 0 rgba(66, 75, 97, 0.09), 0 19px 12px 0 rgba(66, 75, 97, 0.05),
+    0 35px 14px 0 rgba(66, 75, 97, 0.01), 0 54px 15px 0 rgba(66, 75, 97, 0);
 }
 
-.popular-offers__button {
-  margin: 30px 0px 0px 0px;
-  max-width: 260px;
+.offers-similar__row-top {
+  display: flex;
+  margin: 0px 0px 30px 0px;
 }
 
-.popular-offers__table-link {
-  display: block;
+.offers-similar__row-img {
+  margin: 0px 30px 0px 0px;
 }
 
-.popular-offers__table-row th:has(.popular-offers__table-link) {
-  width: inherit;
-  padding: 21px 0px 21px 19px;
+.offers-similar__row-img img {
+  border-radius: 15px;
 }
 
-.popular-offers__table-row td:has(.popular-offers__table-link) {
-  padding: 21px 19px 21px 8px;
-  width: 100%;
+.offers-similar__row-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 90px 0px 0px;
+}
+
+.offers-similar__row-name {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  margin: 0px 0px 8px 0px;
+}
+
+.offers-similar__row-cards {
+  margin: 0px 0px 15px 0px;
+}
+
+.offers-similar__row-card {
+  margin: 0px 0px 8px 0px;
+}
+
+.offers-similar__row-card:last-child {
+  margin: 0;
+}
+
+.offers-similar__row-reviews {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0px 0px 0px 28px;
+  white-space: nowrap;
+}
+
+.offers-similar__row-reviews::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  background: url(../images/icons/black-star.svg);
+}
+
+.offers-similar__row-reviews .offers-similar__row-title {
+  font-size: 18px;
+  margin: 0px 12px 0px 0px;
+}
+
+.offers-similar__row-conditions {
+  margin: 0px 88px 0px 0px;
+}
+
+.offers-similar__row-condition {
+  display: flex;
+  gap: 55px;
+}
+
+.offers-similar__row-item:last-child {
+  margin: 0;
+}
+
+.offers-similar__row-title {
+  white-space: nowrap;
+  font-weight: 700;
+  line-height: 1.53846;
+  letter-spacing: 0.02em;
+  margin: 0px 0px 8px 0px;
+}
+
+.offers-similar__row-text {
+  white-space: nowrap;
+}
+
+.offers-similar__row-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 240px;
+  height: 48px;
+}
+
+.offers-similar__row-tegs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.offers-similar__row-teg {
+  border: 0.5px solid #859cd3;
+  border-radius: 10px;
+  padding: 10px;
+  background: #fff;
+}
+
+.offers-similar__row-banner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.offers-similar__banner-info {
+}
+
+.offers-similar__banner-title {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  margin: 0px 0px 8px 0px;
+}
+
+.offers-similar__banner-text {
+}
+
+.offers-similar__row-condition {
+}
+
+.offers-similar__row-item {
+}
+
+.offers-similar__row-title {
+}
+
+.offers-similar__row-text {
+}
+
+.offers-similar__row-btn {
 }
 
 /*==================== MAP ====================*/
@@ -919,308 +1036,6 @@ h2 {
   transform: translate(-50%, -50%);
 }
 
-/*==================== CURRENT-OFFERS ====================*/
-
-.main__current-offers {
-  margin: 0px 0px 50px 0px;
-}
-
-.current-offers {
-}
-
-.current-offers__inner {
-  border-radius: 20px;
-  padding: 20px 18px;
-  background: #f2f7ff;
-}
-
-.current-offers__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0px 0px 14px 0px;
-}
-
-.current-offers__title {
-  line-height: 1.33333;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.current-offers__more-btn {
-  display: flex;
-  align-items: center;
-
-  transition: all 0.2s;
-}
-
-.current-offers__more-btn:hover {
-  color: #003cce;
-}
-
-.current-offers__more-btn svg path {
-  transition: all 0.2s;
-}
-
-.current-offers__more-btn:hover svg path {
-  fill: #003cce;
-}
-
-.current-offers__slider {
-  display: flex;
-}
-
-.current-offers__slider-arrows {
-  display: flex;
-  justify-content: end;
-  gap: 10px;
-}
-
-.current-offers__slider-arrow svg path {
-  transition: all 0.2s;
-}
-
-.current-offers__slider-arrow:hover svg path {
-  fill: #003cce;
-}
-
-.current-offers__slide {
-  margin: 20px 10px;
-}
-
-.current-offers__slide-inner {
-  width: 100%;
-  background: #fff;
-  border-radius: 15px;
-  padding: 20px 15px;
-  box-shadow: 0 1px 3px 0 rgba(66, 75, 97, 0.1),
-    1px 5px 5px 0 rgba(66, 75, 97, 0.09), 2px 12px 7px 0 rgba(66, 75, 97, 0.05),
-    4px 22px 9px 0 rgba(66, 75, 97, 0.01), 6px 34px 10px 0 rgba(66, 75, 97, 0);
-}
-
-.current-offers__slide-top {
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin: 0px 0px 24px 0px;
-}
-
-.current-offers__slide-img {
-  margin: 0px 8px 0px 0px;
-}
-
-.current-offers__slide-img img {
-  width: 50px;
-}
-
-.current-offers__slide-info {
-}
-
-.current-offers__slide-name {
-  margin: 0px 0px 7px 0px;
-}
-
-.current-offers__slide-description {
-}
-
-.current-offers__slide-rate {
-  position: absolute;
-  color: #003cce;
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-  top: 0;
-  right: 0;
-  padding: 0px 0px 0px 28px;
-}
-
-.current-offers__slide-rate::before {
-  position: absolute;
-  content: '';
-  left: 0;
-  top: 0;
-  width: 24px;
-  height: 24px;
-  background: url(../images/icons/fill-blue-star.svg);
-}
-
-.current-offers__slide-conditions {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.current-offers__slide-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.current-offers__slide-subtitle {
-}
-
-.current-offers__slide-text {
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-align: right;
-}
-
-.current-offers__slide-btn {
-  margin: 24px 0px 0px 0px;
-}
-
-/*==================== INTERESTING-OFFERS ====================*/
-
-.main__interesting-offers {
-  margin: 0px 0px 50px 0px;
-}
-
-.interesting-offers {
-}
-
-.interesting-offers__inner {
-  border-radius: 20px;
-  padding: 20px 18px;
-  background: #f2f7ff;
-}
-
-.interesting-offers__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  margin: 0px 0px 14px 0px;
-}
-
-.interesting-offers__title {
-  line-height: 1.33333;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.interesting-offers__more-btn {
-  display: flex;
-  align-items: center;
-  transition: all 0.2s;
-}
-
-.interesting-offers__more-btn:hover {
-  color: #003cce;
-}
-
-.interesting-offers__more-btn svg path {
-  transition: all 0.2s;
-}
-
-.interesting-offers__more-btn:hover svg path {
-  fill: #003cce;
-}
-
-.interesting-offers__slider {
-  display: flex;
-}
-
-.interesting-offers__slider-arrows {
-  display: flex;
-  justify-content: end;
-  gap: 10px;
-}
-
-.interesting-offers__slider-arrow svg path {
-  transition: all 0.2s;
-}
-
-.interesting-offers__slider-arrow:hover svg path {
-  fill: #003cce;
-}
-
-.interesting-offers__slide {
-  margin: 20px 10px;
-}
-
-.interesting-offers__slide-inner {
-  width: 100%;
-  background: #fff;
-  border-radius: 15px;
-  padding: 20px 15px;
-  box-shadow: 0 1px 3px 0 rgba(66, 75, 97, 0.1),
-    1px 5px 5px 0 rgba(66, 75, 97, 0.09), 2px 12px 7px 0 rgba(66, 75, 97, 0.05),
-    4px 22px 9px 0 rgba(66, 75, 97, 0.01), 6px 34px 10px 0 rgba(66, 75, 97, 0);
-}
-
-.interesting-offers__slide-top {
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin: 0px 0px 24px 0px;
-}
-
-.interesting-offers__slide-img {
-  margin: 0px 8px 0px 0px;
-}
-
-.interesting-offers__slide-img img {
-}
-
-.interesting-offers__slide-info {
-  font-size: 18px;
-}
-
-.interesting-offers__slide-teg {
-  border: 1px solid #003cce;
-  border-radius: 10px;
-  padding: 8px 11px;
-  margin: 0px 0px 18px 0px;
-  display: inline-block;
-}
-
-.interesting-offers__slide-rate {
-  position: absolute;
-  color: #003cce;
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-  top: 0;
-  right: 0;
-  padding: 0px 0px 0px 28px;
-}
-
-.interesting-offers__slide-rate::before {
-  position: absolute;
-  content: '';
-  left: 0;
-  top: 0;
-  width: 24px;
-  height: 24px;
-  background: url(../images/icons/fill-blue-star.svg);
-}
-
-.interesting-offers__slide-conditions {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.interesting-offers__slide-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.interesting-offers__slide-subtitle {
-}
-
-.interesting-offers__slide-text {
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-align: right;
-}
-
-.interesting-offers__slide-btn {
-  margin: 24px 0px 0px 0px;
-}
-
 /*==================== REVIEWS ====================*/
 
 .main__reviews {
@@ -1235,8 +1050,8 @@ h2 {
 
 .reviews__top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin: 0px 0px 30px 0px;
 }
 
@@ -1244,6 +1059,20 @@ h2 {
   line-height: 1.33333;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+.current-offers__more-btn {
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.current-offers__more-btn:hover {
+  color: #003cce;
+}
+
+.current-offers__more-btn:hover path {
+  fill: #003cce;
 }
 
 .reviews__tabs {
@@ -1416,6 +1245,231 @@ h2 {
 .reviews__arrow--next {
 }
 
+/*==================== FAQ ====================*/
+
+.main__faq {
+  margin: 0px 0px 50px 0px;
+}
+
+.faq {
+}
+
+.faq__title {
+  line-height: 1.33333;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0px 0px 30px 0px;
+}
+
+.faq__acc {
+  border-radius: 15px;
+  box-shadow: 0 2px 5px 0 rgba(66, 75, 97, 0.1),
+    0 9px 9px 0 rgba(66, 75, 97, 0.09), 0 20px 12px 0 rgba(66, 75, 97, 0.05),
+    0 35px 14px 0 rgba(66, 75, 97, 0.01), 0 54px 15px 0 rgba(66, 75, 97, 0);
+}
+
+.faq__acc-items {
+}
+
+.faq__acc-item {
+  position: relative;
+}
+
+.faq__acc-item::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 96%;
+  height: 1px;
+  background: #859cd3;
+}
+
+.faq__acc-item:last-child::before {
+  display: none;
+}
+
+.faq__acc-link {
+  display: block;
+  padding: 30px 40px 30px 20px;
+}
+
+.faq__acc-link--active .faq__acc-head::before {
+  transform: rotate(90deg);
+}
+
+.faq__acc-head {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  position: relative;
+  max-width: 80%;
+}
+
+.faq__acc-head::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  transform: rotate(-90deg);
+  right: -23%;
+  width: 25px;
+  height: 25px;
+  background: url(../images/icons/detailed-information-arrow.svg);
+  transition: all 0.3s;
+}
+
+.faq__acc-text {
+  display: none;
+  margin: 45px 0px 0px 0px;
+}
+
+/*==================== AUTOR ====================*/
+
+.main__author {
+  margin: 0px 0px 50px 0px;
+}
+
+.author {
+}
+
+.author__inner {
+}
+
+.author__header {
+  display: flex;
+  margin: 0px 0px 40px 0px;
+}
+
+.author__header-img {
+  max-width: 123px;
+  margin: 0px 22px 0px 0px;
+}
+
+.author__header-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.author__header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  position: relative;
+  width: 100%;
+}
+
+.author__header-info::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #859cd3;
+}
+
+.author__header-name {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+.author__header-contacts span,
+.author__header-direction span,
+.author__header-date span {
+  font-weight: 700;
+}
+
+.author__main {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.author__main-title {
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin: 35px 0px 15px 0px;
+}
+
+.author__main-list {
+  padding: 0px 0px 0px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.author__main-list li {
+  position: relative;
+}
+
+.author__main-list li::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: -9px;
+  width: 3px;
+  height: 3px;
+  border-radius: 3px;
+  background: #262626;
+}
+
+.author__main-item {
+}
+
+.author__main-table {
+  max-width: 882px;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0px 30px 0px;
+}
+
+.main-table__main-table--mobile {
+  display: none;
+}
+
+.main-table__row td:last-child,
+.main-table__row th:last-child {
+  border-radius: 0 20px 20px 0;
+}
+
+.main-table__row td:first-child,
+.main-table__row th:first-child {
+  border-radius: 20px 0 0 20px;
+}
+
+.main-table__title {
+  text-align: left;
+  padding: 20px;
+}
+
+.main-table__title:first-child {
+  width: 30%;
+}
+
+.main-table__item {
+  vertical-align: text-top;
+  text-align: left;
+  padding: 20px;
+}
+
+.main-table__item:first-child {
+  width: 30%;
+}
+
+.main-table__row:nth-of-type(odd) .main-table__title {
+  background: #f2f7ff;
+}
+
+.main-table__row:nth-of-type(even) .main-table__item {
+  background: #f2f7ff;
+}
+
 /*==================== OPINION ====================*/
 
 .main__opinion {
@@ -1520,298 +1574,6 @@ h2 {
   padding: 0px 13px 0px 0px;
 }
 
-/*==================== NEWS ====================*/
-
-.main__news {
-  margin: 0px 0px 50px 0px;
-}
-
-.news {
-}
-
-.news__inner {
-}
-
-.news__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0px 0px 34px 0px;
-}
-
-.news__title {
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-.news__check-all {
-  display: flex;
-  align-items: center;
-  transition: all 0.2s;
-}
-
-.news__check-all path {
-  transition: all 0.2s;
-}
-
-.news__check-all:hover {
-  color: #003cce;
-}
-
-.news__check-all:hover path {
-  fill: #003cce;
-}
-
-.news__cards {
-  display: grid;
-  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
-  row-gap: 30px;
-  column-gap: 38px;
-}
-
-.news__card {
-  border-radius: 15px;
-  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1),
-    7px 8px 11px 0 rgba(0, 0, 0, 0.09), 16px 19px 15px 0 rgba(0, 0, 0, 0.05),
-    28px 33px 17px 0 rgba(0, 0, 0, 0.01), 44px 52px 19px 0 rgba(0, 0, 0, 0);
-}
-
-.news__card-link {
-  display: flex;
-}
-
-.news__card-img {
-}
-
-.news__card-img img {
-  border-radius: 15px 0 0 15px;
-  height: 100%;
-}
-
-.news__card-content {
-  padding: 24px;
-}
-
-.news__card-title {
-  margin: 0px 0px 24px 0px;
-
-  font-weight: 900;
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-}
-
-.news__card-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.news__card-date {
-  color: #d6cdc6;
-}
-
-.news__card-popularity {
-  display: flex;
-  align-items: center;
-  color: #859cd3;
-}
-
-.news__card-views {
-  padding: 0px 0px 0px 32px;
-  margin: 0px 24px 0px 0px;
-  position: relative;
-}
-
-.news__card-views::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-  width: 24px;
-  height: 24px;
-  background: url(../images/icons/eye-icon.svg);
-}
-
-.news__card-likes {
-  padding: 0px 0px 0px 32px;
-  position: relative;
-}
-
-.news__card-likes::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-  width: 24px;
-  height: 24px;
-  background: url(../images/icons/like-icon.svg);
-}
-
-/*==================== MKK-LOAN ====================*/
-
-.main__mkk-loan {
-  margin: 0px 0px 50px 0px;
-}
-
-.mkk-loan {
-}
-
-.mkk-loan__inner {
-}
-
-.mkk-loan__title {
-  line-height: 1.33333;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin: 0px 0px 30px 0px;
-}
-
-.mkk-loan__text {
-  margin: 0px 0px 30px 0px;
-}
-
-.mkk-loan__subtitle {
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  margin: 0px 0px 30px 0px;
-}
-
-.mkk-loan__table {
-  box-shadow: 0 8px 18px 0 rgba(66, 75, 97, 0.1),
-    0 32px 32px 0 rgba(66, 75, 97, 0.09), 0 73px 44px 0 rgba(66, 75, 97, 0.05),
-    0 129px 52px 0 rgba(66, 75, 97, 0.01), 0 202px 56px 0 rgba(66, 75, 97, 0);
-  border-radius: 15px;
-  width: 100%;
-}
-
-.mkk-loan__table-row {
-  display: flex;
-  padding: 20px;
-  text-align: left;
-  position: relative;
-}
-
-.mkk-loan__table-row::before {
-  position: absolute;
-  content: '';
-  bottom: 0;
-  left: -2px;
-  width: calc(100% + 4px);
-  height: 1px;
-  background: #859cd3;
-}
-
-.mkk-loan__table-row:last-child::before {
-  content: none;
-}
-
-.mkk-loan__table-row th {
-  width: 30%;
-  margin: 0px 30px 0px 0px;
-}
-
-.mkk-loan__table-row td {
-  width: 70%;
-}
-
-.mkk-loan__table-list {
-}
-
-.mkk-loan__table-item {
-  margin: 0px 0px 7px 0px;
-  list-style: inherit;
-}
-
-.mkk-loan__table-item:last-child {
-  margin: 0;
-}
-
-/*==================== FAQ ====================*/
-
-.main__faq {
-  margin: 0px 0px 50px 0px;
-}
-
-.faq {
-}
-
-.faq__title {
-  line-height: 1.33333;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin: 0px 0px 30px 0px;
-}
-
-.faq__acc {
-  border-radius: 15px;
-  box-shadow: 0 2px 5px 0 rgba(66, 75, 97, 0.1),
-    0 9px 9px 0 rgba(66, 75, 97, 0.09), 0 20px 12px 0 rgba(66, 75, 97, 0.05),
-    0 35px 14px 0 rgba(66, 75, 97, 0.01), 0 54px 15px 0 rgba(66, 75, 97, 0);
-}
-
-.faq__acc-items {
-}
-
-.faq__acc-item {
-  position: relative;
-}
-
-.faq__acc-item::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 96%;
-  height: 1px;
-  background: #859cd3;
-}
-
-.faq__acc-item:last-child::before {
-  display: none;
-}
-
-.faq__acc-link {
-  display: block;
-  padding: 30px 40px 30px 20px;
-}
-
-.faq__acc-link--active .faq__acc-head::before {
-  transform: rotate(90deg);
-}
-
-.faq__acc-head {
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-  position: relative;
-  max-width: 80%;
-}
-
-.faq__acc-head::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  transform: rotate(-90deg);
-  right: -23%;
-  width: 25px;
-  height: 25px;
-  background: url(../images/icons/detailed-information-arrow.svg);
-  transition: all 0.3s;
-}
-
-.faq__acc-text {
-  display: none;
-  margin: 45px 0px 0px 0px;
-}
-
 /*==================== SEEK ====================*/
 
 .main__seek {
@@ -1821,6 +1583,7 @@ h2 {
 .seek__title {
   letter-spacing: 0.01em;
   text-transform: uppercase;
+  font-size: 18px;
   margin: 0px 0px 30px 0px;
 }
 
@@ -1953,6 +1716,7 @@ h2 {
 .seek__link:hover {
   color: #003cce;
 }
+
 /*==================== SEEK-MOBILE ====================*/
 
 .main__seek-mobile {
@@ -2308,22 +2072,19 @@ input[type='checkbox']:checked {
     fill: #003cce;
   }
 
-  .news__check-all {
+  .current-offers__more-btn:hover {
+    color: #262626;
   }
 
-  .news__check-all:hover {
-    color: inherit;
-  }
-
-  .news__check-all:hover path {
+  .current-offers__more-btn:hover svg path {
     fill: #262626;
   }
 
-  .news__check-all:active {
+  .current-offers__more-btn:active {
     color: #003cce;
   }
 
-  .news__check-all:active path {
+  .current-offers__more-btn:active svg path {
     fill: #003cce;
   }
 
@@ -2344,15 +2105,12 @@ input[type='checkbox']:checked {
 
 @media (max-width: 1200px) {
   /*====================== MEDIA 1200 ======================*/
-  /*====================== MODAL-RESPONSE ======================*/
-
-  .modal-response__container {
-    width: calc(100vw - 60px);
-  }
   /*====================== HEADER ======================*/
   .header__search {
     margin: 0px 0px 0px 80px;
   }
+
+  /*====================== BANK-CARD ======================*/
 
   .bank-card__main {
     margin: 0px 7.4% 0px 0px;
@@ -2383,14 +2141,24 @@ input[type='checkbox']:checked {
     margin: 0px 0px 0px 20px;
   }
 
-  /*====================== BANK-CARD ======================*/
+  /*====================== OFFERS ======================*/
 
-  .bank-card__teg {
-    margin: 0px 18px 9px 0px;
+  .offers__row-info {
+    margin: 0px 40px 0px 0px;
   }
 
-  .bank-card__teg:last-child {
-    margin: 0px 0px 9px 0px;
+  .offers__row-conditions {
+    margin: 0px 20px 0px 0px;
+  }
+
+  /*====================== offers-similar ======================*/
+
+  .offers-similar__row-info {
+    margin: 0px 40px 0px 0px;
+  }
+
+  .offers-similar__row-conditions {
+    margin: 0px 20px 0px 0px;
   }
 
   /*====================== MAP ======================*/
@@ -2411,12 +2179,12 @@ input[type='checkbox']:checked {
   /*====================== BANK-CARD ======================*/
 
   .bank-card__main {
-    margin: 0px 4.4% 0px 0px;
+    margin: 0px 25px 0px 0px;
   }
 
   .bank-card__info {
-    margin: 0px 30px 0px 0px;
-    column-gap: 41px;
+    margin: 0px 25px 0px 0px;
+    column-gap: 25px;
   }
 
   /*====================== MAP ======================*/
@@ -2457,12 +2225,6 @@ input[type='checkbox']:checked {
 
   .map__img {
     margin: 39px 0px 0px 0px;
-  }
-
-  /*====================== POPULAR-OFFERS ======================*/
-
-  .tabs-item__logo {
-    align-self: start;
   }
 }
 
@@ -2584,51 +2346,45 @@ input[type='checkbox']:checked {
     margin: 0;
   }
 
-  /*====================== NEWS ======================*/
+  /*====================== REVIEWS ======================*/
 
-  .news__check-all {
+  .current-offers__more-btn {
     display: none;
   }
 
-  .news__cards {
-    display: flex;
+  /*====================== OFFERS ======================*/
+
+  .offers__row {
+    padding: 20px 18px;
   }
 
-  .news__card {
-    margin: 0px 10px 10px 10px;
-    min-width: 260px;
+  .offers__row-img {
+    margin: 0px 20px 0px 0px;
   }
 
-  .news__card-link {
-    flex-direction: column;
+  .offers__row-info {
+    margin: 0px 20px 0px 0px;
   }
 
-  .news__card-img {
+  .offers__row-conditions {
+    gap: 20px;
+  }
+  /*====================== offers-similar ======================*/
+
+  .offers-similar__row {
+    padding: 20px 18px;
   }
 
-  .news__card-img img {
-    border-radius: 15px 15px 0 0;
-    width: 100%;
-    object-fit: cover;
-    max-height: 143px;
+  .offers-similar__row-img {
+    margin: 0px 20px 0px 0px;
   }
 
-  .news__card-content {
-    position: relative;
+  .offers-similar__row-info {
+    margin: 0px 20px 0px 0px;
   }
 
-  .news__card-title {
-    margin: 20px 0px 24px 0px;
-  }
-
-  .news__card-date {
-    position: absolute;
-    top: 14px;
-  }
-
-  .news__card-popularity {
-    width: 100%;
-    justify-content: space-between;
+  .offers-similar__row-condition {
+    gap: 20px;
   }
 
   /*====================== FOOTER ======================*/
@@ -2712,6 +2468,236 @@ input[type='checkbox']:checked {
     min-height: 27px;
     min-width: 90px;
   }
+
+  /*====================== MAIN-TOP ======================*/
+
+  .main__site-links {
+    font-size: 8px;
+  }
+
+  .main__top {
+    margin: 0px 0px 15px 0px;
+  }
+
+  /*====================== BANK-CARD ======================*/
+
+  .main__bank-card {
+    margin: 0px 0px 30px 0px;
+  }
+
+  .bank-card__body {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .bank-card__main {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .bank-card__main-logo {
+    margin: 0px 0px 8px 0px;
+  }
+
+  .bank-card__main-logo img {
+    width: 15vw;
+    min-width: 80px;
+  }
+
+  .bank-card__title {
+    margin: 0px 0px 8px 0px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.41667;
+  }
+
+  .bank-card__info {
+    flex-direction: column;
+  }
+
+  .bank-card__info-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 0px 8px 0px;
+  }
+
+  .bank-card__info-column {
+    margin: 0px 0px 8px 0px;
+  }
+
+  .bank-card__info-column:last-child {
+    margin: 0px 0px 24px 0px;
+  }
+
+  .bank-card__buttons {
+    max-width: 100%;
+  }
+
+  /*====================== OFFERS ======================*/
+
+  .offers__row-top {
+    margin: 0px 0px 15px 0px;
+  }
+
+  .main__offers {
+    margin: 0px 0px 30px 0px;
+  }
+
+  .offers__title {
+    font-size: 24px;
+    margin: 0px 0px 24px 0px;
+  }
+
+  .offers__row-top {
+    flex-direction: column;
+  }
+
+  .offers__row-img {
+    margin: 0px 0px 15px 0px;
+  }
+
+  .offers__row-info {
+    margin: 0px 0px 15px 0px;
+  }
+
+  .offers__row-reviews {
+    justify-content: space-between;
+  }
+
+  .offers__row-conditions {
+    flex-direction: column;
+    margin: 0px 0px 24px 0px;
+    gap: 8px;
+  }
+
+  .offers__row-condition {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .offers__row-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 0px 8px 0px;
+  }
+
+  .offers__row-btn {
+    max-width: 100%;
+  }
+
+  .offers__row-tegs {
+    gap: 8px;
+  }
+
+  .offers__row-teg {
+    font-size: 8px;
+  }
+
+  .offers__row-item:last-child .offers__row-title {
+    margin: 0;
+  }
+
+  /*====================== offers-similar ======================*/
+
+  .offers-similar__row-top {
+    margin: 0px 0px 15px 0px;
+  }
+
+  .main__offers-similar {
+    margin: 0px 0px 30px 0px;
+  }
+
+  .offers-similar__title {
+    font-size: 24px;
+    margin: 0px 0px 24px 0px;
+  }
+
+  .offers-similar__row-top {
+    flex-direction: column;
+  }
+
+  .offers-similar__row-img {
+    margin: 0px 0px 15px 0px;
+  }
+
+  .offers-similar__row-info {
+    margin: 0px 0px 15px 0px;
+  }
+
+  .offers-similar__row-reviews {
+    justify-content: space-between;
+  }
+
+  .offers-similar__row-conditions {
+    flex-direction: column;
+    margin: 0px 0px 24px 0px;
+  }
+
+  .offers-similar__row-condition {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .offers-similar__row-title {
+    margin: 0;
+  }
+
+  .offers-similar__row-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 0px 8px 0px;
+  }
+
+  .offers-similar__row-btn {
+    max-width: 100%;
+  }
+
+  .offers-similar__row-tegs {
+    gap: 8px;
+  }
+
+  .offers-similar__row-teg {
+    font-size: 8px;
+  }
+
+  .offers-similar__row-item:last-child .offers-similar__row-title {
+    margin: 0;
+  }
+
+  .offers-similar__row-banner {
+    flex-direction: column;
+  }
+
+  .offers-similar__banner-info {
+    margin: 0px 0px 60px 0px;
+  }
+
+  .offers-similar__row-banner .offers-similar__row-condition {
+    margin: 0px 0px 15px 0px;
+  }
+
+  /*====================== MAP ======================*/
+
+  .map__inner {
+    flex-direction: column;
+    padding: 34px 25px 20px 25px;
+  }
+
+  .map__content {
+    margin: 0;
+  }
+
+  .map__table {
+    width: 80vw;
+    max-width: 100%;
+  }
+
+  .map__img {
+    max-height: 285px;
+    max-width: 600px;
+  }
+
   /*====================== MODAL-RESPONSE ======================*/
 
   .modal-response__container {
@@ -2766,334 +2752,6 @@ input[type='checkbox']:checked {
     align-self: start;
   }
 
-  /*====================== MAIN-TOP ======================*/
-
-  .main__site-links {
-    font-size: 8px;
-  }
-
-  .main__top {
-    margin: 0px 0px 15px 0px;
-  }
-
-  /*====================== BANK-CARD ======================*/
-
-  .main__bank-card {
-    margin: 0px 0px 10px 0px;
-  }
-
-  .bank-card__body {
-    flex-direction: column;
-    margin: 0;
-  }
-
-  .bank-card__main {
-    flex-direction: column;
-    margin: 0;
-  }
-
-  .bank-card__main-logo {
-    margin: 0px 0px 8px 0px;
-  }
-
-  .bank-card__main-logo img {
-    width: 15vw;
-    min-width: 80px;
-  }
-
-  .bank-card__title {
-    margin: 0px 0px 8px 0px;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 1.41667;
-  }
-
-  .bank-card__description {
-    font-weight: 700;
-    margin: 0;
-  }
-
-  .bank-card__info {
-    flex-direction: column;
-  }
-
-  .bank-card__info-item {
-    display: flex;
-    justify-content: space-between;
-    margin: 0px 0px 8px 0px;
-  }
-
-  .bank-card__info-column {
-    margin: 0px 0px 8px 0px;
-  }
-
-  .bank-card__info-column:last-child {
-    margin: 0px 0px 24px 0px;
-  }
-
-  .bank-card__buttons {
-    max-width: 100%;
-  }
-
-  .bank-card__teg {
-    margin: 0px 26px 0px 0px;
-  }
-
-  /*====================== POPULAR-OFFERS ======================*/
-
-  .main__popular-offers {
-    display: none;
-  }
-
-  /*====================== POPULAR-OFFERS--MOBILE ======================*/
-
-  .main__popular-offers--mobile {
-    display: block;
-    margin: 0px 0px 30px 0px;
-  }
-
-  .popular-offers--mobile__inner {
-  }
-
-  .popular-offers--mobile__title {
-    font-weight: 800;
-    font-size: 24px;
-    line-height: 1.4;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    margin: 0px 0px 24px 0px;
-  }
-
-  .popular-offers--mobile__title span {
-    white-space: nowrap;
-  }
-
-  .popular-offers--mobile__acc {
-  }
-
-  .popular-offers--mobile__acc-item {
-  }
-
-  .popular-offers--mobile__acc-head {
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    padding: 2px 0;
-    margin: 4px 0;
-    position: relative;
-    width: 100%;
-  }
-
-  .popular-offers--mobile__acc-head::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: #d8e8ff;
-  }
-
-  .popular-offers--mobile__acc-head::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0;
-    width: 24px;
-    height: 24px;
-    background: url(../images/icons/drop-down_arrow.svg);
-    transition: transform 0.3s ease;
-  }
-
-  .popular-offers--mobile__acc-head--active::after {
-    transform: translateY(-50%) rotate(180deg);
-  }
-
-  .popular-offers--mobile__acc-body {
-    display: none;
-    margin: 14px 0;
-  }
-
-  .tabs-item__bank-row {
-    padding: 20px 18px;
-  }
-
-  .tabs-item__top {
-    flex-direction: column;
-    align-items: start;
-    margin: 0px 0px 16px 0px;
-  }
-
-  .tabs-item__logo {
-    max-width: 50px;
-  }
-
-  .tabs-item__bank-info {
-    position: relative;
-  }
-
-  .tabs-item__bank-name {
-    font-size: 13px;
-    position: absolute;
-    margin: 0;
-    left: 60px;
-    top: -35px;
-  }
-
-  .tabs-item__description {
-    margin: 8px 0px 24px 0px;
-    font-size: 8px;
-  }
-
-  .tabs-item__conditions {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0;
-  }
-
-  .tabs-item__conditions-title {
-    margin: 0px 0px 8px 0px;
-  }
-
-  .tabs-item__teg {
-    margin: 0px 8px 8px 0px;
-  }
-
-  .tabs-item__link {
-    font-size: 8px;
-  }
-
-  .tabs-item__more-btn {
-    margin: 12px 0;
-  }
-
-  /*====================== ACC-TABLE ======================*/
-
-  .popular-offers__acc-table {
-    width: 100%;
-  }
-
-  .acc-table__row {
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    padding: 21px 19px;
-  }
-
-  .acc-table__row:nth-of-type(odd) {
-    background: #f2f7ff;
-  }
-
-  .acc-table__head {
-    margin: 0px 0px 10px 0px;
-    letter-spacing: 0.02em;
-  }
-
-  .acc-table__item {
-    margin: 0px 0px 8px 0px;
-    font-size: 8px;
-  }
-
-  .acc-table__item:last-child {
-    margin: 0;
-  }
-
-  .acc-table__row:has(.acc-table__link) {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .acc-table__row:has(.acc-table__link) th {
-    margin: 0px 8px 0px 0px;
-  }
-
-  /*====================== CURRENT-OFFERS ======================*/
-
-  .current-offers__inner {
-    padding: 30px 10px;
-  }
-
-  .current-offers__title {
-    font-size: 24px;
-  }
-
-  .current-offers__more-btn {
-    display: none;
-  }
-
-  .current-offers__slide-top {
-    flex-direction: column;
-    align-items: start;
-    margin: 0px 0px 8px 0px;
-    padding: 0px 0px 36px 0px;
-  }
-
-  .current-offers__slide-img {
-    margin: 0px 0px 8px 0px;
-  }
-
-  .current-offers__slide-img img {
-    width: 38px;
-  }
-
-  .current-offers__slide-description {
-    font-size: 8px;
-  }
-
-  .current-offers__slide-rate {
-    top: inherit;
-    bottom: 0;
-    right: inherit;
-    left: 0;
-  }
-
-  .current-offers__slide-conditions {
-    font-size: 8px;
-  }
-
-  .current-offers__slider-arrows {
-    display: none;
-  }
-
-  /*====================== INTERESTING-OFFERS ======================*/
-
-  .interesting-offers__more-btn {
-    display: none;
-  }
-
-  .interesting-offers__slide-top {
-    flex-direction: column;
-    align-items: start;
-    margin: 0px 0px 8px 0px;
-  }
-
-  .interesting-offers__slide-img {
-    margin: 0px 0px 8px 0px;
-  }
-
-  /*====================== MAP ======================*/
-
-  .map__inner {
-    flex-direction: column;
-    padding: 34px 25px 20px 25px;
-  }
-
-  .map__content {
-    margin: 0;
-  }
-
-  .map__table {
-    width: 80vw;
-    max-width: 100%;
-  }
-
-  .map__img {
-    max-height: 285px;
-    max-width: 600px;
-  }
-
   /*====================== REVIEWS ======================*/
 
   .reviews__top {
@@ -3130,6 +2788,66 @@ input[type='checkbox']:checked {
 
   .reviews__arrows {
     display: none;
+  }
+
+  /*====================== AUTOR ======================*/
+
+  .main__author {
+    margin: 0px 0px 30px 0px;
+  }
+
+  .author__main-title {
+    margin: 0px 0px 15px 0px;
+    font-size: 24px;
+  }
+
+  .main-table {
+    display: none;
+  }
+
+  .main-table__main-table--mobile {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 10px;
+    border-radius: 15px;
+    background: #f2f7ff;
+    gap: 30px;
+  }
+
+  .main-table__block {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .main-table__block-title {
+    margin: 0px 0px 15px 0px;
+  }
+
+  .main-table__block-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .main-table__block-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .main-table__block:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    bottom: -15px;
+    width: calc(100% + 20px);
+    height: 1px;
+    background: #d6cdc6;
+  }
+
+  .main-table__block-element:first-child {
+    font-weight: 700;
   }
 
   /*====================== OPINIONS ======================*/
@@ -3176,23 +2894,6 @@ input[type='checkbox']:checked {
   .opinion__contact span,
   .opinion__direction span {
     white-space: nowrap;
-  }
-
-  /*====================== MKK-LOAN ======================*/
-
-  .mkk-loan__table-row {
-    flex-direction: column;
-  }
-
-  .mkk-loan__table-row th {
-    margin: 0px 0px 8px 0px;
-    width: 100%;
-  }
-
-  .mkk-loan__table-row td {
-    padding: 0px 20px 0px 20px;
-
-    width: 100%;
   }
 
   /*====================== SEEK ======================*/

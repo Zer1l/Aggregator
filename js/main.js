@@ -1,3 +1,177 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const dropdownSelect = document.querySelector(
+    '.modal-advantage__dropdown-select'
+  );
+  const dropdownMenu = document.querySelector(
+    '.modal-advantage__dropdown-menu'
+  );
+  const caret = document.querySelector('.modal-advantage__dropdown-caret');
+  const dropdownItems = document.querySelectorAll(
+    '.modal-advantage__dropdown-item'
+  );
+  const dropdownElements = document.querySelectorAll(
+    '.modal-advantage__dropdown-element'
+  );
+  const dropdownSelected = document.querySelector(
+    '.modal-advantage__dropdown-selected'
+  );
+
+  // Показать/скрыть меню
+  dropdownSelect.addEventListener('click', function () {
+    dropdownMenu.classList.toggle('modal-advantage__dropdown-menu--active');
+    caret.classList.toggle('modal-advantage__dropdown-caret--rotate');
+  });
+
+  // Переключение активного элемента, контента и текста
+  dropdownItems.forEach((item, index) => {
+    item.addEventListener('click', function () {
+      // Удалить активный класс с всех элементов
+      dropdownItems.forEach((item) =>
+        item.classList.remove('modal-advantage__dropdown-item--active')
+      );
+      dropdownElements.forEach((element) =>
+        element.classList.remove('modal-advantage__dropdown-element--active')
+      );
+
+      // Добавить активный класс на выбранный элемент
+      item.classList.add('modal-advantage__dropdown-item--active');
+      dropdownElements[index].classList.add(
+        'modal-advantage__dropdown-element--active'
+      );
+
+      // Обновить текст в .modal-advantage__dropdown-selected
+      dropdownSelected.textContent = item.textContent;
+
+      // Закрыть меню
+      dropdownMenu.classList.remove('modal-advantage__dropdown-menu--active');
+      caret.classList.remove('modal-advantage__dropdown-caret--rotate');
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const content = document.querySelector('.content');
+  const itemsPerPage = 9;
+  let currentPage = 0;
+  const items = Array.from(content.querySelectorAll('tbody tr'));
+  const paginationContainer = document.querySelector(
+    '.without-visiting__inner .pagination'
+  );
+
+  function showPage(page) {
+    const startIndex = page * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+
+    items.forEach((item, index) => {
+      item.classList.toggle('hidden', index < startIndex || index >= endIndex);
+    });
+    updateActiveButtonStates();
+  }
+
+  function createPageButtons() {
+    const totalPages = Math.ceil(items.length / itemsPerPage);
+    paginationContainer.innerHTML = '';
+    for (let i = 0; i < totalPages; i++) {
+      const pageButton = document.createElement('button');
+      pageButton.textContent = i + 1;
+      pageButton.addEventListener('click', () => {
+        currentPage = i;
+        showPage(currentPage);
+      });
+      paginationContainer.appendChild(pageButton);
+    }
+    updateActiveButtonStates();
+  }
+
+  function updateActiveButtonStates() {
+    const pageButtons = paginationContainer.querySelectorAll('button');
+    pageButtons.forEach((button, index) => {
+      if (index === currentPage) {
+        button.classList.add('active');
+      } else {
+        button.classList.remove('active');
+      }
+    });
+  }
+
+  createPageButtons();
+  showPage(currentPage);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const creditRows = document.querySelector('.all-credit__rows');
+  const creditItemsPerPage = 12; // Количество элементов на странице
+  let creditCurrentPage = 0;
+  const creditItems = Array.from(
+    creditRows.querySelectorAll('.all-credit__row')
+  );
+  const creditPaginationContainer = document.querySelector(
+    '.all-credit__pagination'
+  ); // Используем уже существующий класс .pagination
+
+  function showCreditPage(page) {
+    const startIndex = page * creditItemsPerPage;
+    const endIndex = startIndex + creditItemsPerPage;
+
+    // Показываем только элементы на текущей странице, остальные скрываем
+    creditItems.forEach((item, index) => {
+      if (index >= startIndex && index < endIndex) {
+        item.classList.remove('hidden'); // Убираем класс hidden с видимых элементов
+      } else {
+        item.classList.add('hidden'); // Добавляем класс hidden к скрытым элементам
+      }
+    });
+
+    // Обновляем состояние активных кнопок пагинации
+    updateCreditActiveButtonStates();
+  }
+
+  function createCreditPageButtons() {
+    const totalCreditPages = Math.ceil(creditItems.length / creditItemsPerPage);
+    creditPaginationContainer.innerHTML = '';
+    for (let i = 0; i < totalCreditPages; i++) {
+      const creditPageButton = document.createElement('button');
+      creditPageButton.textContent = i + 1;
+
+      // Добавляем обработчик нажатия на кнопку
+      creditPageButton.addEventListener('click', () => {
+        creditCurrentPage = i; // Устанавливаем текущую страницу
+        showCreditPage(creditCurrentPage); // Показываем элементы для этой страницы
+      });
+
+      creditPaginationContainer.appendChild(creditPageButton);
+    }
+
+    // Обновляем активные состояния для первой страницы
+    updateCreditActiveButtonStates();
+  }
+
+  function updateCreditActiveButtonStates() {
+    const creditPageButtons =
+      creditPaginationContainer.querySelectorAll('button');
+
+    // Пробегаем по кнопкам и добавляем/убираем класс active
+    creditPageButtons.forEach((button, index) => {
+      if (index === creditCurrentPage) {
+        button.classList.add('active');
+      } else {
+        button.classList.remove('active');
+      }
+    });
+  }
+
+  // Создаем кнопки пагинации и отображаем первую страницу
+  createCreditPageButtons();
+  showCreditPage(creditCurrentPage);
+});
+
+$('.all-credit__pagination').on('click', function (e) {
+  e.preventDefault();
+  var id = document.querySelector('.sorting-loans__all-credit'),
+    top = $(id).offset().top - 100;
+  $('body,html').animate({ scrollTop: top }, 800);
+});
+
 document.querySelector('.burger').addEventListener('click', function () {
   const burger = document.querySelector('.burger');
   burger.classList.add('burger-animate');
@@ -60,7 +234,7 @@ $(function () {
   });
 
   //modal-2
-  $('.evaluations__btn ').on('click', function () {
+  $('.evaluations__btn, .banner__btn ').on('click', function () {
     $('.modal-feedback').toggleClass('modal-feedback--open');
   });
 
@@ -88,6 +262,24 @@ $(function () {
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       $('.modal-response').removeClass('modal-response--open');
+    }
+  });
+
+  //modal-4
+  $(
+    '.all-credit__row-btn.button--white, .all-credit__row-btn.button--empty, .top-offers__card-infobtn '
+  ).on('click', function () {
+    $('.modal-advantage').toggleClass('modal-advantage--open');
+  });
+
+  $('.modal-advantage__close').on('click', function (e) {
+    e.preventDefault();
+    $('.modal-advantage').removeClass('modal-advantage--open');
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      $('.modal-advantage').removeClass('modal-advantage--open');
     }
   });
 
@@ -329,6 +521,24 @@ tabs8.forEach((tab, index) => {
       content.classList.remove('tabs-item--active');
     });
     all_content8[index].classList.add('tabs-item--active');
+  });
+});
+
+const tabs9 = document.querySelectorAll('.modal-advantage__tabs-btn');
+const all_content9 = document.querySelectorAll(
+  '.modal-advantage__tabs-content'
+);
+
+tabs9.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    tabs9.forEach((tab) => {
+      tab.classList.remove('modal-advantage__tabs-btn--active');
+    });
+    tab.classList.add('modal-advantage__tabs-btn--active');
+    all_content9.forEach((content) => {
+      content.classList.remove('modal-advantage__tabs-content--active');
+    });
+    all_content9[index].classList.add('modal-advantage__tabs-content--active');
   });
 });
 
@@ -826,6 +1036,49 @@ $(function () {
 });
 
 $(function () {
+  $('.current-offers2__slider').slick({
+    arrows: false,
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    infinite: true,
+    responsive: [
+      {
+        breakpoint: 551,
+        settings: {
+          slidesToShow: 1.03,
+          slidesToScroll: 1,
+          draggable: true,
+        },
+      },
+      {
+        breakpoint: 771,
+        settings: {
+          slidesToShow: 2.05,
+          draggable: true,
+        },
+      },
+
+      {
+        breakpoint: 1032,
+        settings: {
+          slidesToShow: 3,
+          draggable: true,
+        },
+      },
+    ],
+  });
+
+  $('.current-offers2__slider-arrow--prev').on('click', function (e) {
+    e.preventDefault();
+    $('.current-offers2__slider').slick('slickPrev');
+  });
+  $('.current-offers2__slider-arrow--next').on('click', function (e) {
+    e.preventDefault();
+    $('.current-offers2__slider').slick('slickNext');
+  });
+});
+
+$(function () {
   $('.interesting-offers__slider').slick({
     arrows: false,
     slidesToShow: 4,
@@ -968,9 +1221,52 @@ $(function () {
   });
 
   $(document).click(function (event) {
-    if (!$(event.target).closest('.without-visiting--mobile__dropdown-select').length) {
+    if (
+      !$(event.target).closest('.without-visiting--mobile__dropdown-select')
+        .length
+    ) {
       $('.without-visiting--mobile__dropdown-menu').removeClass(
         'without-visiting--mobile__dropdown-menu--active'
+      );
+    }
+  });
+
+  $('.sorting__dropdown-select').on('click', function () {
+    $('.sorting__dropdown-menu').toggleClass('sorting__dropdown-menu--active');
+  });
+  $('.sorting__dropdown__item').on('click', function () {
+    $('.sorting__dropdown-menu').removeClass('sorting__dropdown-menu--active');
+  });
+
+  $(document).click(function (event) {
+    if (!$(event.target).closest('.sorting__dropdown-select').length) {
+      $('.sorting__dropdown-menu').removeClass(
+        'sorting__dropdown-menu--active'
+      );
+    }
+  });
+
+  $('.sorting-loans__body-dropdown-select').on('click', function (e) {
+    e.stopPropagation();
+    $('.sorting-loans__body-dropdown-menu')
+      .not($(this).next())
+      .removeClass('sorting-loans__body-dropdown-menu--active');
+
+    $(this)
+      .next('.sorting-loans__body-dropdown-menu')
+      .toggleClass('sorting-loans__body-dropdown-menu--active');
+  });
+
+  $('.sorting-loans__body-dropdown-item').on('click', function () {
+    $(this)
+      .closest('.sorting-loans__body-dropdown-menu')
+      .removeClass('sorting-loans__body-dropdown-menu--active');
+  });
+
+  $(document).on('click', function (event) {
+    if (!$(event.target).closest('.sorting-loans__body-dropdown').length) {
+      $('.sorting-loans__body-dropdown-menu').removeClass(
+        'sorting-loans__body-dropdown-menu--active'
       );
     }
   });
@@ -984,6 +1280,26 @@ $(function () {
     $('.best-offers-mobile__dropdown-menu').removeClass(
       'best-offers-mobile__dropdown-menu--active'
     );
+  });
+
+  const SubTegs = document.querySelectorAll(
+    '.sorting-loans__body-subparameter'
+  );
+
+  SubTegs.forEach((button) => {
+    button.addEventListener('click', function () {
+      // Переключаем класс на нажатой кнопке
+      this.classList.toggle('sorting-loans__body-subparameter--active');
+    });
+  });
+
+  const Tegs = document.querySelectorAll('.banks-in__search-teg');
+
+  Tegs.forEach((button) => {
+    button.addEventListener('click', function () {
+      // Переключаем класс на нажатой кнопке
+      this.classList.toggle('banks-in__search-teg--active');
+    });
   });
 
   $(document).click(function (event) {
@@ -1016,22 +1332,6 @@ $(function () {
         'recommendations-mobile__dropdown-menu--active'
       );
     }
-  });
-
-  $('.reviews__review-more ').on('click', function () {
-    $('.reviews__review-more').addClass('reviews__review-more--none');
-    $('.reviews__review-text ').addClass('reviews__review-text--all');
-    $('.reviews__review-nomore').addClass('reviews__review-nomore--none');
-  });
-
-  $('.reviews__review-nomore').on('click', function () {
-    $('.reviews__review-more').removeClass('reviews__review-more--none');
-    $('.reviews__review-text ').removeClass('reviews__review-text--all');
-    $('.reviews__review-nomore').removeClass('reviews__review-nomore--none');
-  });
-
-  $('.reviews__review-comments').on('click', function () {
-    $('.reviews__review-write').slideToggle();
   });
 
   $(document).ready(function () {
@@ -1086,16 +1386,187 @@ $(function () {
   });
 });
 
+const inputs = Array.from(document.querySelectorAll('.evaluations__input'));
+
+inputs.forEach(function (input) {
+  let isChecked = false;
+
+  input.addEventListener('click', function (e) {
+    if (isChecked) {
+      input.checked = false;
+      isChecked = false;
+    } else {
+      isChecked = true;
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const reviewsContainer = document.querySelector('.reviews__body');
+  const reviewItems = Array.from(reviewsContainer.children);
+  const ratingInputs = document.querySelectorAll('.evaluations__input');
+
+  // Функция для получения оценки отзыва
+  function getReviewRating(review) {
+    const emptyStars = review.querySelectorAll('.reviews__review-star--empty');
+    return 5 - emptyStars.length; // Оценка равна 5 минус количество пустых звезд
+  }
+
+  // Функция для сортировки отзывов по оценке
+  function sortReviews() {
+    const selectedRating =
+      Array.from(ratingInputs).findIndex((input) => input.checked) + 1;
+
+    // Если ничего не выбрано, просто вернемся
+    if (selectedRating === 0) return;
+
+    // Фильтрация и сортировка отзывов
+    const filteredReviews = reviewItems.filter((review) => {
+      const reviewRating = getReviewRating(review);
+      switch (selectedRating) {
+        case 5:
+          return reviewRating === 1; // 1 звезд
+        case 4:
+          return reviewRating === 2; // 2 звезды
+        case 3:
+          return reviewRating === 3; // 3 звезды
+        case 2:
+          return reviewRating === 4; // 4 звезды
+        case 1:
+          return reviewRating === 5; // 5 звезда
+        default:
+          return false; // Если что-то пошло не так
+      }
+    });
+
+    // Удаляем все отзывы и добавляем отфильтрованные
+    reviewsContainer.innerHTML = '';
+    filteredReviews.forEach((review) => {
+      reviewsContainer.appendChild(review);
+    });
+  }
+
+  // Обработчик события для инпутов
+  ratingInputs.forEach((input) => {
+    input.addEventListener('change', sortReviews);
+  });
+});
+
+$(document).ready(function () {
+  // Функция для сортировки отзывов
+  function sortReviews(isDescending) {
+    var $reviews = $('.reviews__review');
+
+    // Сортируем отзывы по дате
+    $reviews.sort(function (a, b) {
+      var dateA = $(a).find('.reviews__review-date').text().split('.');
+      var dateB = $(b).find('.reviews__review-date').text().split('.');
+
+      var parsedDateA = new Date(dateA[2], dateA[1] - 1, dateA[0]);
+      var parsedDateB = new Date(dateB[2], dateB[1] - 1, dateB[0]);
+
+      return isDescending
+        ? parsedDateB - parsedDateA
+        : parsedDateA - parsedDateB;
+    });
+
+    // Обновляем порядок элементов на странице
+    $('.reviews__body').html($reviews);
+  }
+
+  // Установка обработчиков событий
+  function setEventHandlers() {
+    // Обработчик для кнопки "больше"
+    $('.reviews__review-more')
+      .off('click')
+      .on('click', function () {
+        $(this).addClass('reviews__review-more--none');
+        $(this)
+          .siblings('.reviews__review-text')
+          .addClass('reviews__review-text--all');
+        $(this)
+          .siblings('.reviews__review-nomore')
+          .addClass('reviews__review-nomore--none');
+      });
+
+    // Обработчик для кнопки "больше не показывать"
+    $('.reviews__review-nomore')
+      .off('click')
+      .on('click', function () {
+        $(this)
+          .siblings('.reviews__review-more')
+          .removeClass('reviews__review-more--none');
+        $(this)
+          .siblings('.reviews__review-text')
+          .removeClass('reviews__review-text--all');
+        $(this).removeClass('reviews__review-nomore--none');
+      });
+
+    // Обработчик для показа/скрытия комментариев
+    $('.reviews__review-comments')
+      .off('click')
+      .on('click', function () {
+        var $currentForm = $(this)
+          .closest('.reviews__review')
+          .find('.reviews__review-write');
+
+        // Если текущая форма видима, просто сворачиваем её
+        if ($currentForm.is(':visible')) {
+          $currentForm.slideUp();
+        } else {
+          // Закрываем все остальные формы
+          $('.reviews__review-write').slideUp();
+
+          // Открываем только текущую форму
+          $currentForm.stop(true, true).slideDown();
+        }
+      });
+  }
+
+  // Изначально сортируем по новизне
+  var isDescending = true;
+  sortReviews(isDescending);
+
+  // Обработка клика по элементу сортировки
+  $('.sorting__time').on('click', function () {
+    isDescending = !isDescending;
+    sortReviews(isDescending);
+
+    // Меняем текст кнопки, сохраняя SVG
+    $(this)
+      .contents()
+      .filter(function () {
+        return this.nodeType === Node.TEXT_NODE;
+      })
+      .first()
+      .replaceWith(isDescending ? 'Старые' : 'Новые');
+
+    // Сбрасываем состояние обработчиков
+    setEventHandlers();
+  });
+
+  // Устанавливаем обработчики событий при первой загрузке
+  setEventHandlers();
+});
+
+$(document).ready(function () {
+  $('.sorting-loans__body-parameters').on('click', function () {
+    $('.sorting-loans__body-toggle').slideToggle();
+  });
+});
+
 // Обработчик клика по элементам меню
 $('.without-visiting--mobile__dropdown-item').on('click', function () {
   let sortType = $(this).text().trim();
-  
+
   // Удаляем активный класс у всех пунктов меню
-  $('.without-visiting--mobile__dropdown-item').removeClass('without-visiting--mobile__dropdown-item--active');
-  
+  $('.without-visiting--mobile__dropdown-item').removeClass(
+    'without-visiting--mobile__dropdown-item--active'
+  );
+
   // Добавляем активный класс к выбранному элементу
   $(this).addClass('without-visiting--mobile__dropdown-item--active');
-  
+
   // Применяем сортировку на основе выбранного элемента
   sortItems(sortType);
 });
@@ -1103,16 +1574,18 @@ $('.without-visiting--mobile__dropdown-item').on('click', function () {
 // Обработчик клика по элементам меню
 $('.without-visiting--mobile__dropdown-item').on('click', function () {
   let sortType = $(this).text().trim();
-  
+
   // Удаляем активный класс у всех пунктов меню
-  $('.without-visiting--mobile__dropdown-item').removeClass('without-visiting--mobile__dropdown-item--active');
-  
+  $('.without-visiting--mobile__dropdown-item').removeClass(
+    'without-visiting--mobile__dropdown-item--active'
+  );
+
   // Добавляем активный класс к выбранному элементу
   $(this).addClass('without-visiting--mobile__dropdown-item--active');
-  
+
   // Обновляем выбранный элемент дропдауна
   $('.without-visiting--mobile__dropdown-selected').text(sortType);
-  
+
   // Применяем сортировку на основе выбранного элемента
   sortItems(sortType);
 });
@@ -1120,140 +1593,158 @@ $('.without-visiting--mobile__dropdown-item').on('click', function () {
 // Функция сортировки
 function sortItems(type) {
   let items = $('.without-visiting--mobile__item');
-  
-  items.sort(function (a, b) {
-      let textA, textB;
 
-      switch(type) {
-          case 'Название от А-Я':
-              textA = $(a).find('.without-visiting--mobile__item-name').text().toLowerCase();
-              textB = $(b).find('.without-visiting--mobile__item-name').text().toLowerCase();
-              return textA.localeCompare(textB);
-          case 'Название от Я-А':
-              textA = $(a).find('.without-visiting--mobile__item-name').text().toLowerCase();
-              textB = $(b).find('.without-visiting--mobile__item-name').text().toLowerCase();
-              return textB.localeCompare(textA);
-          case 'Сумма по возрастанию':
-              textA = parseFloat($(a).find('.without-visiting--mobile__item-text').eq(0).text().replace(/[^\d]/g, ''));
-              textB = parseFloat($(b).find('.without-visiting--mobile__item-text').eq(0).text().replace(/[^\d]/g, ''));
-              return textA - textB;
-          case 'Сумма по убыванию':
-              textA = parseFloat($(a).find('.without-visiting--mobile__item-text').eq(0).text().replace(/[^\d]/g, ''));
-              textB = parseFloat($(b).find('.without-visiting--mobile__item-text').eq(0).text().replace(/[^\d]/g, ''));
-              return textB - textA;
-          case 'Срок по возрастанию':
-              textA = parseInt($(a).find('.without-visiting--mobile__item-text').eq(1).text());
-              textB = parseInt($(b).find('.without-visiting--mobile__item-text').eq(1).text());
-              return textA - textB;
-          case 'Срок по убыванию':
-              textA = parseInt($(a).find('.without-visiting--mobile__item-text').eq(1).text());
-              textB = parseInt($(b).find('.without-visiting--mobile__item-text').eq(1).text());
-              return textB - textA;
-          case 'Процент по возрастанию':
-              textA = parseFloat($(a).find('.without-visiting--mobile__item-text').eq(2).text().replace('%', ''));
-              textB = parseFloat($(b).find('.without-visiting--mobile__item-text').eq(2).text().replace('%', ''));
-              return textA - textB;
-          case 'Процент по убыванию':
-              textA = parseFloat($(a).find('.without-visiting--mobile__item-text').eq(2).text().replace('%', ''));
-              textB = parseFloat($(b).find('.without-visiting--mobile__item-text').eq(2).text().replace('%', ''));
-              return textB - textA;
-      }
+  items.sort(function (a, b) {
+    let textA, textB;
+
+    switch (type) {
+      case 'Название от А-Я':
+        textA = $(a)
+          .find('.without-visiting--mobile__item-name')
+          .text()
+          .toLowerCase();
+        textB = $(b)
+          .find('.without-visiting--mobile__item-name')
+          .text()
+          .toLowerCase();
+        return textA.localeCompare(textB);
+      case 'Название от Я-А':
+        textA = $(a)
+          .find('.without-visiting--mobile__item-name')
+          .text()
+          .toLowerCase();
+        textB = $(b)
+          .find('.without-visiting--mobile__item-name')
+          .text()
+          .toLowerCase();
+        return textB.localeCompare(textA);
+      case 'Сумма по возрастанию':
+        textA = parseFloat(
+          $(a)
+            .find('.without-visiting--mobile__item-text')
+            .eq(0)
+            .text()
+            .replace(/[^\d]/g, '')
+        );
+        textB = parseFloat(
+          $(b)
+            .find('.without-visiting--mobile__item-text')
+            .eq(0)
+            .text()
+            .replace(/[^\d]/g, '')
+        );
+        return textA - textB;
+      case 'Сумма по убыванию':
+        textA = parseFloat(
+          $(a)
+            .find('.without-visiting--mobile__item-text')
+            .eq(0)
+            .text()
+            .replace(/[^\d]/g, '')
+        );
+        textB = parseFloat(
+          $(b)
+            .find('.without-visiting--mobile__item-text')
+            .eq(0)
+            .text()
+            .replace(/[^\d]/g, '')
+        );
+        return textB - textA;
+      case 'Срок по возрастанию':
+        textA = parseInt(
+          $(a).find('.without-visiting--mobile__item-text').eq(1).text()
+        );
+        textB = parseInt(
+          $(b).find('.without-visiting--mobile__item-text').eq(1).text()
+        );
+        return textA - textB;
+      case 'Срок по убыванию':
+        textA = parseInt(
+          $(a).find('.without-visiting--mobile__item-text').eq(1).text()
+        );
+        textB = parseInt(
+          $(b).find('.without-visiting--mobile__item-text').eq(1).text()
+        );
+        return textB - textA;
+      case 'Процент по возрастанию':
+        textA = parseFloat(
+          $(a)
+            .find('.without-visiting--mobile__item-text')
+            .eq(2)
+            .text()
+            .replace('%', '')
+        );
+        textB = parseFloat(
+          $(b)
+            .find('.without-visiting--mobile__item-text')
+            .eq(2)
+            .text()
+            .replace('%', '')
+        );
+        return textA - textB;
+      case 'Процент по убыванию':
+        textA = parseFloat(
+          $(a)
+            .find('.without-visiting--mobile__item-text')
+            .eq(2)
+            .text()
+            .replace('%', '')
+        );
+        textB = parseFloat(
+          $(b)
+            .find('.without-visiting--mobile__item-text')
+            .eq(2)
+            .text()
+            .replace('%', '')
+        );
+        return textB - textA;
+    }
   });
-  
+
   // Применяем отсортированные элементы
   $('.without-visiting--mobile__items').html(items);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const table = document.querySelector(".without-visiting__table");
-  const headers = table.querySelectorAll("th");
-  const tbody = table.querySelector("tbody");
+document.addEventListener('DOMContentLoaded', () => {
+  const table = document.querySelector('.without-visiting__table');
+  const headers = table.querySelectorAll('th');
+  const tbody = table.querySelector('tbody');
 
   headers.forEach((header, index) => {
-    header.addEventListener("click", () => {
-      const sortType = header.getAttribute("data-sort-type");
-      const rows = Array.from(tbody.querySelectorAll("tr"));
-      const isAscending = header.classList.contains("asc");
+    header.addEventListener('click', () => {
+      const sortType = header.getAttribute('data-sort-type');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const isAscending = header.classList.contains('asc');
 
       rows.sort((a, b) => {
-        const cellA = a.querySelectorAll("td")[index].innerText.trim();
-        const cellB = b.querySelectorAll("td")[index].innerText.trim();
+        const cellA = a.querySelectorAll('td')[index].innerText.trim();
+        const cellB = b.querySelectorAll('td')[index].innerText.trim();
 
-        if (sortType === "number") {
-          const numA = parseFloat(cellA.replace(/[^\d,.-]/g, "").replace(",", "."));
-          const numB = parseFloat(cellB.replace(/[^\d,.-]/g, "").replace(",", "."));
+        if (sortType === 'number') {
+          const numA = parseFloat(
+            cellA.replace(/[^\d,.-]/g, '').replace(',', '.')
+          );
+          const numB = parseFloat(
+            cellB.replace(/[^\d,.-]/g, '').replace(',', '.')
+          );
           return isAscending ? numA - numB : numB - numA;
         } else {
-          return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+          return isAscending
+            ? cellA.localeCompare(cellB)
+            : cellB.localeCompare(cellA);
         }
       });
 
       // Обновляем класс для направления сортировки
-      headers.forEach((h) => h.classList.remove("asc", "desc"));
-      header.classList.toggle("asc", !isAscending);
-      header.classList.toggle("desc", isAscending);
+      headers.forEach((h) => h.classList.remove('asc', 'desc'));
+      header.classList.toggle('asc', !isAscending);
+      header.classList.toggle('desc', isAscending);
 
       // Переставляем отсортированные строки в таблице
       rows.forEach((row) => tbody.appendChild(row));
     });
   });
 });
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  const content = document.querySelector('.content');
-  const itemsPerPage = 9;
-  let currentPage = 0;
-  const items = Array.from(content.querySelectorAll('tbody tr'));
-  const paginationContainer = document.querySelector('.pagination');
-
-  function showPage(page) {
-    const startIndex = page * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    
-    items.forEach((item, index) => {
-      item.classList.toggle('hidden', index < startIndex || index >= endIndex);
-    });
-    updateActiveButtonStates();
-  }
-  
-
-  function createPageButtons() {
-    const totalPages = Math.ceil(items.length / itemsPerPage);
-    paginationContainer.innerHTML = '';
-    for (let i = 0; i < totalPages; i++) {
-      const pageButton = document.createElement('button');
-      pageButton.textContent = i + 1;
-      pageButton.addEventListener('click', () => {
-        currentPage = i;
-        showPage(currentPage);
-      });
-      paginationContainer.appendChild(pageButton);
-    }
-    updateActiveButtonStates();
-  }
-
-  function updateActiveButtonStates() {
-    const pageButtons = paginationContainer.querySelectorAll('button');
-    pageButtons.forEach((button, index) => {
-      if (index === currentPage) {
-        button.classList.add('active');
-      } else {
-        button.classList.remove('active');
-      }
-    });
-  }
-
-  createPageButtons();
-  showPage(currentPage);
-});
-
-
-
-
-
-
 
 //offer__row
 $(document).ready(function () {
@@ -1462,13 +1953,56 @@ $(document).ready(function () {
   });
 });
 
-//smooth-scrolling
-$('.bank-card__reviews').on('click', function (e) {
-  e.preventDefault();
-  var id = $(this).attr('href'),
-    top = $(id).offset().top - 100;
-  $('body,html').animate({ scrollTop: top }, 800);
+$(document).ready(function () {
+  function initializeSlick() {
+    if ($(window).width() < 1001) {
+      if (!$('.popular-banks__rows').hasClass('slick-initialized')) {
+        $('.popular-banks__rows').slick({
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: false,
+          arrows: false,
+          dots: false,
+          responsive: [
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 1.5,
+              },
+            },
+            {
+              breakpoint: 500,
+              settings: {
+                slidesToShow: 1.1,
+              },
+            },
+          ],
+        });
+      }
+    } else {
+      if ($('.popular-banks__rows').hasClass('slick-initialized')) {
+        $('.popular-banks__rows').slick('unslick');
+      }
+    }
+  }
+
+  initializeSlick();
+
+  $(window).resize(function () {
+    initializeSlick();
+  });
 });
+
+//smooth-scrolling
+$(' .offers__row-reviews, .offers-similar__row-reviews').on(
+  'click',
+  function (e) {
+    e.preventDefault();
+    var id = $(this).attr('href'),
+      top = $(id).offset().top - 100;
+    $('body,html').animate({ scrollTop: top }, 800);
+  }
+);
 
 $('.more-btn').on('click', function () {
   $('.info-bank--mobile__text').addClass('info-bank--mobile__text--active');
@@ -1641,6 +2175,29 @@ const swiperExpertsopinion = new Swiper('.experts-opinion__cards', {
 
 //Swiper all-banks__logos
 const swiperExchange = new Swiper('.exchange-rate__cards.swiper-container', {
+  slidesPerView: 'auto',
+  spaceBetween: 24,
+  freeMode: true,
+  loop: false,
+});
+
+//Swiper all-banks__logos
+const swiperTegss = new Swiper('.bank-card__tegss.swiper-container', {
+  slidesPerView: 'auto',
+  freeMode: true,
+  loop: false,
+  breakpoints: {
+    801: {
+      spaceBetween: 24,
+    },
+    200: {
+      spaceBetween: 10,
+    },
+  },
+});
+
+//Swiper all-banks__logos
+const swiperTegsLoans = new Swiper('.sorting-loans__body-tegs.swiper', {
   slidesPerView: 'auto',
   spaceBetween: 24,
   freeMode: true,
